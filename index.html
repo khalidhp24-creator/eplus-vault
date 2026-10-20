@@ -69,7 +69,7 @@
           type="search"
           id="search-input"
           class="search-input"
-          placeholder="Search 252 files, drivers, SQL, Eplus versions, or passwords..."
+          placeholder="Search 351 files, drivers, SQL, Eplus versions, or passwords..."
           autocomplete="off"
           spellcheck="false"
           aria-label="Search files and software"
@@ -87,8 +87,20 @@
   <!-- Sticky Category Tabs & View Switcher -->
   <nav class="controls-bar" aria-label="Directory controls">
     <div class="container controls-inner">
-      <div class="category-tabs" id="category-tabs" role="tablist">
-        <!-- Populated dynamically by app.js -->
+      <div class="category-bar-wrap">
+        <button type="button" class="cat-scroll-btn" id="cat-scroll-left" aria-label="Scroll categories left" title="Scroll left">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+        </button>
+        <div class="category-tabs" id="category-tabs" role="tablist">
+          <!-- Populated dynamically by app.js -->
+        </div>
+        <button type="button" class="cat-scroll-btn" id="cat-scroll-right" aria-label="Scroll categories right" title="Scroll right">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </button>
       </div>
 
       <div class="view-toggle" role="group" aria-label="Layout view switcher">

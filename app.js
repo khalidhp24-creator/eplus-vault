@@ -30,6 +30,8 @@
   const searchInputEl = document.getElementById("search-input");
   const searchClearBtn = document.getElementById("search-clear-btn");
   const categoryTabsEl = document.getElementById("category-tabs");
+  const catScrollLeftBtn = document.getElementById("cat-scroll-left");
+  const catScrollRightBtn = document.getElementById("cat-scroll-right");
   const directoryContentEl = document.getElementById("directory-content");
   const viewGridBtn = document.getElementById("view-grid-btn");
   const viewListBtn = document.getElementById("view-list-btn");
@@ -58,6 +60,7 @@
     switch (categoryId) {
       case "eplus-db":
       case "eplus-core":
+      case "eplus-116":
       case "future2010":
         return ICONS.database;
       case "utilities":
@@ -169,8 +172,20 @@
     });
   }
 
+  function updateCategoryScrollButtons() {
+    if (!categoryTabsEl) return;
+    const maxScrollLeft = categoryTabsEl.scrollWidth - categoryTabsEl.clientWidth;
+    if (catScrollLeftBtn) {
+      catScrollLeftBtn.disabled = categoryTabsEl.scrollLeft <= 2;
+    }
+    if (catScrollRightBtn) {
+      catScrollRightBtn.disabled = categoryTabsEl.scrollLeft >= maxScrollLeft - 2;
+    }
+  }
+
   // Render Category Filter Tabs
   function renderTabs() {
+    const prevScrollLeft = categoryTabsEl ? categoryTabsEl.scrollLeft : 0;
     const matchingFiles = config.files.filter((f) => matchesSearch(f, searchQuery));
     const totalCount = matchingFiles.length;
 
@@ -194,12 +209,19 @@
     });
 
     categoryTabsEl.innerHTML = html;
+    categoryTabsEl.scrollLeft = prevScrollLeft;
+    updateCategoryScrollButtons();
 
     categoryTabsEl.querySelectorAll(".tab-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
+        if (categoryTabsEl.dataset.dragged === "true") return;
         activeCategory = btn.getAttribute("data-cat") || "all";
         renderTabs();
         renderDirectory();
+        const activeBtn = categoryTabsEl.querySelector(".tab-btn.active");
+        if (activeBtn && activeBtn.scrollIntoView) {
+          activeBtn.scrollIntoView({ behavior: "smooth", inline: "nearest", block: "nearest" });
+        }
       });
     });
   }
@@ -453,6 +475,72 @@
 
     if (viewListBtn) {
       viewListBtn.addEventListener("click", () => applyView("list"));
+    }
+
+    // Horizontal Category Bar Scroll Controls (Buttons, Mouse Wheel, Drag)
+    if (categoryTabsEl) {
+      categoryTabsEl.addEventListener("scroll", updateCategoryScrollButtons, { passive: true });
+      window.addEventListener("resize", updateCategoryScrollButtons);
+
+      if (catScrollLeftBtn) {
+        catScrollLeftBtn.addEventListener("click", () => {
+          categoryTabsEl.scrollBy({ left: -260, behavior: "smooth" });
+        });
+      }
+
+      if (catScrollRightBtn) {
+        catScrollRightBtn.addEventListener("click", () => {
+          categoryTabsEl.scrollBy({ left: 260, behavior: "smooth" });
+        });
+      }
+
+      // Allow vertical mouse wheel over the category bar to scroll it horizontally
+      categoryTabsEl.addEventListener(
+        "wheel",
+        (e) => {
+          if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            const maxScroll = categoryTabsEl.scrollWidth - categoryTabsEl.clientWidth;
+            if (maxScroll > 0) {
+              e.preventDefault();
+              categoryTabsEl.scrollLeft += e.deltaY;
+            }
+          }
+        },
+        { passive: false }
+      );
+
+      // Click-and-drag horizontal scrolling on desktop
+      let isDown = false;
+      let startX = 0;
+      let scrollStart = 0;
+
+      categoryTabsEl.addEventListener("mousedown", (e) => {
+        isDown = true;
+        categoryTabsEl.dataset.dragged = "false";
+        startX = e.pageX - categoryTabsEl.offsetLeft;
+        scrollStart = categoryTabsEl.scrollLeft;
+      });
+
+      window.addEventListener("mouseup", () => {
+        if (!isDown) return;
+        isDown = false;
+        categoryTabsEl.classList.remove("dragging");
+        setTimeout(() => {
+          categoryTabsEl.dataset.dragged = "false";
+        }, 50);
+      });
+
+      categoryTabsEl.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        const x = e.pageX - categoryTabsEl.offsetLeft;
+        const walk = x - startX;
+        if (Math.abs(walk) > 5) {
+          categoryTabsEl.dataset.dragged = "true";
+          categoryTabsEl.classList.add("dragging");
+          e.preventDefault();
+          categoryTabsEl.scrollLeft = scrollStart - walk;
+        }
+      });
     }
   }
 
