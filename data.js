@@ -92,6 +92,20 @@ window.SITE_CONFIG = {
   ],
   "files": [
     {
+      "id": "eplus-upgrade-119-admin",
+      "name": "Eplus Upgrade v119.0 (pw: admin)",
+      "filename": "EplusUpgrade119.0   pw admin.zip",
+      "description": "Latest Eplus Pharmacy upgrade v119.0 compressed ZIP archive (Password: admin).",
+      "category": "eplus-db",
+      "tag": "Upgrade",
+      "size": "51.5 MB",
+      "url": "https://www.mediafire.com/file_premium/6k7zedy4dzhsscb/EplusUpgrade119.0_pw_admin.zip/file",
+      "urlLabel": "Download",
+      "mirrors": [],
+      "password": "admin",
+      "checksum": "a338c1e132ec0179901543b3d05a30bb0709c03467d36f89345ad2b11b48d2e8"
+    },
+    {
       "id": "eplus-upgrade-119",
       "name": "Eplus Pharmacy Upgrade v13.0.119.0",
       "filename": "EplusPharmacyUpgrade13.0.119.0.rar",
@@ -2815,7 +2829,7 @@ window.SITE_CONFIG = {
     {
       "id": "file-q0n7kd5y9owhxs7",
       "name": "Software POS Windows Driver V5.0.1 ى",
-      "filename": "Software POS Windows Driver V5.0.1 ى.zip",
+      "filename": "Software_POS_Windows_Driver_V5.0.1______ى.zip",
       "description": "Bixolon POS Windows Driver v5.0.1 for Bixolon thermal receipt printers.",
       "category": "printer-drivers",
       "tag": "ZIP Archive",
@@ -4943,10 +4957,10 @@ window.SITE_CONFIG = {
     {
       "id": "folder-admin-rep",
       "name": "admin&rep",
-      "filename": "Folder • 5 files",
+      "filename": "Folder • 4 files",
       "description": "Administration tools and reporting modules for Eplus.",
       "category": "folders",
-      "tag": "5 Files",
+      "tag": "4 Files",
       "size": "Subfolder",
       "url": "https://www.mediafire.com/folder/9qccmt3170lrm/admin&rep",
       "urlLabel": "Open Folder",
@@ -4957,10 +4971,10 @@ window.SITE_CONFIG = {
     {
       "id": "folder-solo",
       "name": "SOLO",
-      "filename": "Folder • 11 files",
+      "filename": "Folder • 10 files",
       "description": "SOLO package files and standalone deployment resources.",
       "category": "folders",
-      "tag": "11 Files",
+      "tag": "10 Files",
       "size": "Subfolder",
       "url": "https://www.mediafire.com/folder/hww9shj0y4cai/SOLO",
       "urlLabel": "Open Folder",
