@@ -7,11 +7,17 @@
 (function () {
   "use strict";
 
-  const config = window.SITE_CONFIG;
+  let config = window.SITE_CONFIG;
   if (!config) {
     console.error("SITE_CONFIG not found. Ensure data.js is loaded before app.js.");
     return;
   }
+
+  // Supabase Live Catalog Sync Endpoint (Public Read-Only Anon Key)
+  const SUPABASE_CATALOG_URL =
+    "https://urdyjiatqzdvkjwiruop.supabase.co/rest/v1/eplus_vault_config?id=eq.main&select=payload";
+  const SUPABASE_ANON_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVyZHlqaWF0cXpkdmtqd2lydW9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg1ODM1OTAsImV4cCI6MjEwNDE1OTU5MH0.Agbn6e-iyygekRCHhqDklHnt_svgePv5pnAwQEOb0dA";
 
   // State
   let activeCategory = "all";
@@ -542,6 +548,33 @@
         }
       });
     }
+
+    // Sync full catalog from Supabase if remote has newer/more items
+    fetch(SUPABASE_CATALOG_URL, {
+      headers: {
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`
+      }
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((rows) => {
+        if (Array.isArray(rows) && rows[0] && rows[0].payload && Array.isArray(rows[0].payload.files)) {
+          const remoteConfig = rows[0].payload;
+          if (remoteConfig.files.length >= config.files.length) {
+            config = remoteConfig;
+            window.SITE_CONFIG = remoteConfig;
+            if (searchInputEl) {
+              searchInputEl.placeholder = `Search ${config.files.length} files, drivers, SQL, Eplus versions, or passwords...`;
+            }
+            renderTabs();
+            renderDirectory();
+            applyView(currentView);
+          }
+        }
+      })
+      .catch(() => {
+        // Offline or local fallback already rendered from data.js
+      });
   }
 
   if (document.readyState === "loading") {
