@@ -37,7 +37,7 @@ window.SITE_CONFIG = {
     {
       "id": "eplus-db",
       "name": "EPLUS & Databases",
-      "description": "Core EPLUS pharmacy upgrades and clean database templates."
+      "description": "Core EPLUS pharmacy upgrades, Admin tools, SQL Server 2008 R2 migration packages, and clean database templates."
     },
     {
       "id": "eplus-core",
@@ -160,6 +160,62 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "0837e7a6173d678350f24d793e19b2468b29e853258e38a148bf419a10059fb5"
+    },
+    {
+      "id": "eplus-admin-3-28",
+      "name": "e-Plus Admin v3.28",
+      "filename": "e-Plus Admin3.28.rar",
+      "description": "Latest e-Plus Admin Support utility v3.28 RAR archive for database administration and maintenance.",
+      "category": "eplus-db",
+      "tag": "Admin Tool",
+      "size": "1.75 MB",
+      "url": "https://www.mediafire.com/file_premium/n7m7gj1m7syno7w/e-Plus_Admin3.28.rar/file",
+      "urlLabel": "Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "5ca085aa59d77206173a73240edc1f0e125ea06aa6fa3477d03e2460fe9bfc25"
+    },
+    {
+      "id": "hany-2000-to-2008-v4-2",
+      "name": "HANY SQL 2000 to 2008 Tool v4.2",
+      "filename": "HANY2000TO2008V4.2.rar",
+      "description": "Database migration and upgrade utility (v4.2) for converting SQL Server 2000 databases to SQL Server 2008.",
+      "category": "eplus-db",
+      "tag": "Migration Tool",
+      "size": "5.44 MB",
+      "url": "https://www.mediafire.com/file_premium/kggf1ey6qdjcrq4/HANY2000TO2008V4.2.rar/file",
+      "urlLabel": "Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "da79c31b9569372ba557b450daff7b20a1caa41e71d25d8528a762e8d8f65d07"
+    },
+    {
+      "id": "sql-server-2008-r2-ent-iso",
+      "name": "SQL Server 2008 R2 Enterprise (x86/x64 ISO)",
+      "filename": "en_sql_server_2008_r2_enterprise_x86_x64.iso",
+      "description": "Full Microsoft SQL Server 2008 R2 Enterprise Edition (32-bit & 64-bit) English installation ISO image.",
+      "category": "eplus-db",
+      "tag": "SQL ISO",
+      "size": "1.43 GB",
+      "url": "https://www.mediafire.com/file_premium/sp5awtbcmnny247/en_sql_server_2008_r2_enterprise_x86_x64.iso/file",
+      "urlLabel": "Download ISO",
+      "mirrors": [],
+      "password": "",
+      "checksum": "1f377a08af62f253bfe7d47a8221c8ba33b2e799bb28ceb2a781f053feb2d72a"
+    },
+    {
+      "id": "sql-2008-training-mp4",
+      "name": "SQL Server 2008 Training Video",
+      "filename": "SQL 2008 TRAINING.mp4",
+      "description": "Step-by-step video training guide for installing, configuring, and migrating to SQL Server 2008.",
+      "category": "eplus-db",
+      "tag": "Training Video",
+      "size": "22.6 MB",
+      "url": "https://www.mediafire.com/file_premium/8e3z2lidgaa2n2w/SQL_2008_TRAINING.mp4/file",
+      "urlLabel": "Download Video",
+      "mirrors": [],
+      "password": "",
+      "checksum": "227cd14a215e3665ec8297f330f14c329ab63e9b547a9432b8c3a2abc6747f3f"
     },
     {
       "id": "printer-share-fixer",
@@ -4928,13 +4984,13 @@ window.SITE_CONFIG = {
     },
     {
       "id": "folder-eplus-2",
-      "name": "eplus(2)",
+      "name": "ver.rar (eplus 2)",
       "filename": "Folder • 9 files",
-      "description": "Secondary Eplus archive containing 9 supplementary tools and updates.",
+      "description": "Secondary Eplus archive folder (ver.rar / eplus 2) containing 9 supplementary tools and version updates.",
       "category": "folders",
       "tag": "9 Files",
       "size": "Subfolder",
-      "url": "https://www.mediafire.com/folder/eulvx4tg0puv2/eplus(2)",
+      "url": "https://www.mediafire.com/folder/eulvx4tg0puv2/ver.rar",
       "urlLabel": "Open Folder",
       "mirrors": [],
       "password": "",
