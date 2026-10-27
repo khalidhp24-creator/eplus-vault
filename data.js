@@ -6716,9 +6716,9 @@ window.SITE_CONFIG = {
     },
     {
       "id": "my-k-library",
-      "name": "My K Library & E-Books Archive",
+      "name": "My K Library",
       "filename": "LibraryAppVB.exe",
-      "description": "Dual physical library manager & online e-book reader with Supabase cloud database sync, Touch Screen Kiosk mode, and instant browser reading.",
+      "description": "Library Management System for cataloging, search, circulation, and desktop sync.",
       "category": "utilities",
       "tag": "Web & Desktop",
       "size": "Web App + 98 KB EXE",
