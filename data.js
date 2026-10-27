@@ -1,25 +1,7 @@
-﻿/**
+/**
  * ============================================================================
  * #EPLUS SOFTWARE & ESSENTIAL FILES CONFIGURATION (data.js)
  * ============================================================================
- *
- * HOW TO ADD A NEW FILE LATER:
- * Simply copy and paste this block into the `files` array below:
- *
- * {
- *   "id": "my-new-file",
- *   "name": "File Name or Title",
- *   "filename": "exact_filename.zip",
- *   "description": "Short description of what this software or file does.",
- *   "category": "eplus-db", // Options: "eplus-db", "eplus-core", "utilities", "software-os", "printer-drivers", "other-tools", "future2010", "folders", "media"
- *   "tag": "Archive",
- *   "size": "25.4 MB",
- *   "url": "https://www.mediafire.com/file/...",
- *   "urlLabel": "Download",
- *   "mirrors": [],
- *   "password": "",
- *   "checksum": ""
- * },
  */
 
 window.SITE_CONFIG = {
@@ -5079,7 +5061,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "dae3260c19f07fbdb440b78aab94a3238491ab500b49c5217c6045fea938d7c7"
-    }    ,
+    },
     {
       "id": "mf-2tbukl5a4q16psc",
       "name": "Region_castomize_format_language",
@@ -5093,7 +5075,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "ee51f0f69a635342fed4945d9a50a229572c58a9e148f18782977a7532e99677"
-    }    ,
+    },
     {
       "id": "mf-zizqxt61965d9db",
       "name": "settings",
@@ -5107,7 +5089,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "76d5653004bb24f15b5802b5b28e44ecf84420e868af50285dfa6ebacefcd434"
-    }    ,
+    },
     {
       "id": "mf-jd48zpnk0fzkxg0",
       "name": "Supports_Eplus",
@@ -5121,7 +5103,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "d7536f861a7aa282a52160fe357842bfc5f2968e79d01f377ad3d8b62ecb2f79"
-    }    ,
+    },
     {
       "id": "mf-ati1nxw3wteda7m",
       "name": "vcredist_x64",
@@ -5135,7 +5117,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "a4bba7701e355ae29c403431f871a537897c363e215cafe706615e270984f17c"
-    }    ,
+    },
     {
       "id": "mf-9vlgjhtbcyzmujm",
       "name": "vcredist_x86",
@@ -5149,7 +5131,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "a22895e55b26202eae166838edbe2ea6aad00d7ea600c11f8a31ede5cbce2048"
-    }    ,
+    },
     {
       "id": "mf-9er6kd7not3qfv1",
       "name": "EPlusPharmacyGeneric",
@@ -5163,7 +5145,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "6d0570eb3d3b04d2c2dda02faf71dfd40b129fa73367b73f0479886fba6abbfb"
-    }    ,
+    },
     {
       "id": "mf-0tnhv8vdzy693eo",
       "name": "EPlusPharmacyUpgrade",
@@ -5177,7 +5159,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "9501c95a34f8e1c8d346875a51c0ce9227e4d3ed1c213efdebc25829f236c47e"
-    }    ,
+    },
     {
       "id": "mf-6tt5fg559h8vyv3",
       "name": "DBCheckerService 1.1 Setup",
@@ -5191,7 +5173,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "00a114b589175ad0c5b102ad42797e00fb433efb0874943fb4ea4e9e178fc83c"
-    }    ,
+    },
     {
       "id": "mf-8twsked09jmzxsu",
       "name": "DBCheckerSrvc",
@@ -5205,7 +5187,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "0b97aaead2446b7571e705eafd5d6bece9a5e4512226c3208a7ccb7f13aefdb1"
-    }    ,
+    },
     {
       "id": "mf-7s10chw8tqwb87m",
       "name": "e-Plus_rep_service4.5",
@@ -5219,7 +5201,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "0f9482752c3a5092d9b22ed4d712f2caa6fa4af4f75c9d6e66d1c551e3cad760"
-    }    ,
+    },
     {
       "id": "mf-cao8zk2ngo8760i",
       "name": "ePlus_Repl_Service_4_to_win10",
@@ -5233,7 +5215,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "f74d48f3590d240934b76106e00370c8ff42786c367f75a532c5444b96c30241"
-    }    ,
+    },
     {
       "id": "mf-0y5bz95wh5pno49",
       "name": "e-Plus_rep_service",
@@ -5247,7 +5229,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "a0bb4f9f1a25140c898518b60ce682d0f21ce70b952ef746f00fa3bf185b50ba"
-    }    ,
+    },
     {
       "id": "mf-ewru28rec9x23y4",
       "name": "e-Plus_rep_service",
@@ -5261,7 +5243,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "b05cdd3e8ca08165b2804653049c45e40c3291c473b287cac9ebb707e8f40212"
-    }    ,
+    },
     {
       "id": "mf-27j5vbylzj20i2e",
       "name": "e-Plus_rep_service",
@@ -5275,7 +5257,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "235cf8a22c64b23acac6e8ff1ff1ce0d2024334102c0f0a1ce3a1403d093c23a"
-    }    ,
+    },
     {
       "id": "mf-1ow7x4ubhv07yg1",
       "name": "Install",
@@ -5289,7 +5271,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "f5312436256d26b5ee974d872d8be45386a985768d342cfbc82ce873022ec607"
-    }    ,
+    },
     {
       "id": "mf-mh7mrgj30mtkwaa",
       "name": "InstallUtil",
@@ -5303,7 +5285,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "8bc40732accc5588e683ae95af51ba0e0cc01f455b23d0adc9b5a4fe10c3326e"
-    }    ,
+    },
     {
       "id": "mf-dk5anj1s4h7hie5",
       "name": "Settings",
@@ -5317,7 +5299,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "d3924b0ec6b37861e2db7a8a239cdf6bbb9b1426f5c4e1914f9e9f31302e0533"
-    }    ,
+    },
     {
       "id": "mf-yx6fgtq23krcvj2",
       "name": "UnInstall",
@@ -5331,7 +5313,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "17f58228beed4372b7b0954085c7b78e970977a5c49dd014edb779330e6faa84"
-    }    ,
+    },
     {
       "id": "mf-itkgd0i2u6rdzri",
       "name": "3-Windows6.1-KB3102810-x64",
@@ -5345,7 +5327,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "ea00d526d57d37b6bb9fa788a4f72e145f929796249b7798d4d6a15b4c11a517"
-    }    ,
+    },
     {
       "id": "mf-lezjzheki0gpdq4",
       "name": "Windows6.1-KB3102810 حل مشكلة ابديت ويندوز سفن-x86",
@@ -5359,7 +5341,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "4d5bea25233ffbcdf77b97f4f5a33b471dda5536b3e14ee0ea6ef760b2886211"
-    }    ,
+    },
     {
       "id": "mf-vjm5q2sj68z3d2e",
       "name": "admin23+rep41 pw123",
@@ -5373,7 +5355,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "123",
       "checksum": "4ba69b3404c937123144c5ca42b4e62db7930f99068a401b31371cdf7f17557f"
-    }    ,
+    },
     {
       "id": "mf-b8wgh13866p7wi6",
       "name": "e-Plus Admin 3.23. pw=1",
@@ -5387,7 +5369,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "1",
       "checksum": "9220a2c2843021d42c959d2f95040885eb021c671cc3b3d15996d0ad52480bd3"
-    }    ,
+    },
     {
       "id": "mf-8dtm9utz9j8qly5",
       "name": "e-Plus Admin3.23",
@@ -5401,7 +5383,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "30c1f25427af106fe1f9d3abbf1a2006f98affd0d3e202f7567333da596c1a7c"
-    }    ,
+    },
     {
       "id": "mf-os3tpr3dh585k9e",
       "name": "ePlus Replication14.7.42",
@@ -5415,7 +5397,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "07937bd515c42baec96566c47110e5238b34c13d14811d3c55b1a6b670df0fbf"
-    }    ,
+    },
     {
       "id": "mf-8bh406y5dfrkxdm",
       "name": "ePlus Replication",
@@ -5429,7 +5411,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "8546bee0fa98fa6b7366e75319c6fa8f349b2855624a18b77ba85f711c2dded6"
-    }    ,
+    },
     {
       "id": "mf-gs1tb575zblwzyr",
       "name": "ePlus Replication14.7.3",
@@ -5443,7 +5425,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "94eca41b437296d1ed3d3197d550b49fd3c04715315ae106f0f96b16bc27c65a"
-    }    ,
+    },
     {
       "id": "mf-euko4cck9ktpq4h",
       "name": "e-Plus_rep_service",
@@ -5457,7 +5439,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "54b06450d3a75537563a6a070ffcb166ffeff8cd1d5b6e7e9e3d0db4f018cacc"
-    }    ,
+    },
     {
       "id": "mf-or61icc4ncv4mmc",
       "name": "ePlus_Repl_Service_4",
@@ -5471,7 +5453,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "72a24ed0be8b710b5cd03b8f3402b1072fc1b9e883ff47b9fc6566beae22aaf9"
-    }    ,
+    },
     {
       "id": "mf-tl7l2xdcnsbjitm",
       "name": "ePlus_Repl_Service_4_to_win10",
@@ -5485,7 +5467,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "f74d48f3590d240934b76106e00370c8ff42786c367f75a532c5444b96c30241"
-    }    ,
+    },
     {
       "id": "mf-ci35k5asl4ewvtw",
       "name": "e-Plus_rep_service",
@@ -5499,7 +5481,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "a0bb4f9f1a25140c898518b60ce682d0f21ce70b952ef746f00fa3bf185b50ba"
-    }    ,
+    },
     {
       "id": "mf-pv5q4aqhctcx2ho",
       "name": "e-Plus_rep_service",
@@ -5513,7 +5495,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "b05cdd3e8ca08165b2804653049c45e40c3291c473b287cac9ebb707e8f40212"
-    }    ,
+    },
     {
       "id": "mf-zu7g97iy6uyidrj",
       "name": "e-Plus_rep_service",
@@ -5527,7 +5509,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "235cf8a22c64b23acac6e8ff1ff1ce0d2024334102c0f0a1ce3a1403d093c23a"
-    }    ,
+    },
     {
       "id": "mf-w47g54b5d28dxam",
       "name": "Install",
@@ -5541,7 +5523,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "f5312436256d26b5ee974d872d8be45386a985768d342cfbc82ce873022ec607"
-    }    ,
+    },
     {
       "id": "mf-0fw1z71g4vs8e5h",
       "name": "InstallUtil",
@@ -5555,7 +5537,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "8bc40732accc5588e683ae95af51ba0e0cc01f455b23d0adc9b5a4fe10c3326e"
-    }    ,
+    },
     {
       "id": "mf-owqguvy2fcch984",
       "name": "Settings",
@@ -5569,7 +5551,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "d3924b0ec6b37861e2db7a8a239cdf6bbb9b1426f5c4e1914f9e9f31302e0533"
-    }    ,
+    },
     {
       "id": "mf-868rfztfmkjdnuc",
       "name": "UnInstall",
@@ -5583,7 +5565,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "17f58228beed4372b7b0954085c7b78e970977a5c49dd014edb779330e6faa84"
-    }    ,
+    },
     {
       "id": "mf-tqc5h9l4115byaz",
       "name": "e-Plus_rep_service",
@@ -5597,7 +5579,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "2ca35af680fc38b7be550a3122b9e5ddfbc9c7f22f0d6ab156c26eef7cb4baf8"
-    }    ,
+    },
     {
       "id": "mf-9fz86oubuv1q3wu",
       "name": "e-Plus_rep_service4.4",
@@ -5611,7 +5593,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "6e81f35cd8901326cd5e0a9796bc297c2b2a8999959c17cf13c9d3d15ad9ce7b"
-    }    ,
+    },
     {
       "id": "mf-actsxjosr9jtxj4",
       "name": "e-Plus_rep_service4.5",
@@ -5625,7 +5607,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "0f9482752c3a5092d9b22ed4d712f2caa6fa4af4f75c9d6e66d1c551e3cad760"
-    }    ,
+    },
     {
       "id": "mf-i9028env2htdcm7",
       "name": "e-Plus_rep_servicev4.2",
@@ -5639,7 +5621,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "be2cbed93493014b4293ca36ae56c04469764e6ef1b1d778839e4a43bf5b5ec2"
-    }    ,
+    },
     {
       "id": "mf-6bsjcedp8j0kwdm",
       "name": "e-Plus_rep_servicev4.7",
@@ -5653,7 +5635,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "409c22fcc52f1a0319e4effb863b2b8bd2dc4c484ae2a8a8ea680fbf3d465288"
-    }    ,
+    },
     {
       "id": "mf-2rnpwtip1kk6hv7",
       "name": "e-Plus_rep_service_v4.3",
@@ -5667,7 +5649,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "def751fe3cc39ed9c1877ad48c4037590aa5e4646d8d4741207fa2e1661c56c8"
-    }    ,
+    },
     {
       "id": "mf-qa5qgwyx95q15pa",
       "name": "ePlus_Repl_Service_4",
@@ -5681,7 +5663,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "72a24ed0be8b710b5cd03b8f3402b1072fc1b9e883ff47b9fc6566beae22aaf9"
-    }    ,
+    },
     {
       "id": "mf-n4roa799qpyfseb",
       "name": "User Manual",
@@ -5695,7 +5677,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "4b17972de71280339a49f32eec45e634ed9c8893dabd8811bc5f46773017b4d6"
-    }    ,
+    },
     {
       "id": "mf-z4y4kb2tvrzyuh4",
       "name": "User guider",
@@ -5709,7 +5691,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "f0fae9a60310e1f199c0c1ab6243d2d461e6761a525de8e04a5870c9a2b39444"
-    }    ,
+    },
     {
       "id": "mf-2fsmfmnjwxodsh1",
       "name": "User Manual",
@@ -5723,7 +5705,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "182271aad03b508fab964041cacaf6f548898276f90563319f2cde21758434d5"
-    }    ,
+    },
     {
       "id": "mf-qlzbuyy1axilee0",
       "name": "Empty_db_2000-solo_8-2024",
@@ -5737,7 +5719,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "dd73c431161c1fac6e24a331d41cefe20ef3303f431667845290c00e7c598f60"
-    }    ,
+    },
     {
       "id": "mf-xhxmzn1nhgdi1k9",
       "name": "Solo1.0.18",
@@ -5751,7 +5733,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "cce902d8206279bef8540661c49ec109ff0910962b436bf8f4f5ce1536d09126"
-    }    ,
+    },
     {
       "id": "mf-ftmstnu0actlkbw",
       "name": "SoloGeneric1.0.19.0",
@@ -5765,7 +5747,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "9cc66bacfc36e3afc8e031108078a2f54c4871d968f658bc1ef9f2e4c4d2f4de"
-    }    ,
+    },
     {
       "id": "mf-7oe47xaqb7c8ztl",
       "name": "SoloUpdate_1_0_11",
@@ -5779,7 +5761,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "366fbcbd19a5a761089c838cdfaa99a91ac97c2cfa4a31612028a3d59bb86fad"
-    }    ,
+    },
     {
       "id": "mf-0jdnbpsnlrgvk1b",
       "name": "SoloUpdate_1_0_16",
@@ -5793,7 +5775,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "20ad28671bb344ae938651d668138e9bcd2efb2df3a327a86c964af9b4b3d610"
-    }    ,
+    },
     {
       "id": "mf-y4qvxieh0njumxb",
       "name": "Soloupdate_1_0_17",
@@ -5807,7 +5789,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "beaccb49922d3a51a0ad2c67e3a1468c2f7ec0b9627045c7438119960f1a4aee"
-    }    ,
+    },
     {
       "id": "mf-yds526caul75ron",
       "name": "SoloUpdate_1_0_18",
@@ -5821,7 +5803,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "02e8b5ee1fb18e74531802b874eff68795cb116fd1183d60e428080e2f933e6e"
-    }    ,
+    },
     {
       "id": "mf-okzzca3t1jmbbu4",
       "name": "Solo_db_Cosmetics",
@@ -5835,7 +5817,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "8c83987b3c29ac88a0ccfc8f1ae2a99e7bffbbc1917e06b90b25697e10907013"
-    }    ,
+    },
     {
       "id": "mf-d00dkvym4u67xgz",
       "name": "Solo_db_Supermarket",
@@ -5849,7 +5831,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "ed8e46e9c7b87c20fcc7b05680f540703281cc97a55b357b2171b179fc8f50ac"
-    }    ,
+    },
     {
       "id": "mf-pipn5xl3gt92h2l",
       "name": "solo_new_DB",
@@ -5863,7 +5845,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "2997e9e45623e6cbc1815cc364aac686503ff9ca0fc8dc29f571f727e5bb395b"
-    }    ,
+    },
     {
       "id": "mf-frg2rnv6sctytyx",
       "name": "ADJUST",
@@ -5877,7 +5859,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "2b3e10e9869de46a6f0155618d4982ba2c448902821bbf9771dc13050513b2ee"
-    }    ,
+    },
     {
       "id": "mf-5odtt7e2flsc3ot",
       "name": "CLEAN TEMP",
@@ -5891,7 +5873,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "ccd9aede880e6fbc9e45614ae9c34561fe725cc2493e38e0007f124f9de20cc9"
-    }    ,
+    },
     {
       "id": "mf-2j2shsk62tjdfoq",
       "name": "ePlus - 117 pw 123",
@@ -5905,7 +5887,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "123",
       "checksum": "6dacb28f9dcb43b1beadbce87e46e91d598e58c69b04e51f7de87c761e1bfab2"
-    }    ,
+    },
     {
       "id": "mf-k5f1jtkkzm06yln",
       "name": "ePlus 116 pw 123 ",
@@ -5919,7 +5901,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "123",
       "checksum": "c6f2dc67298ac62e80e14c05746c73d45110eb090ba138c6902b7c5a0c13b11c"
-    }    ,
+    },
     {
       "id": "mf-o7m9ivu5vc7jpc5",
       "name": "ePlus 118 pw 123",
@@ -5933,7 +5915,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "123",
       "checksum": "16085ac642b59c68934b0d28793546d90476d3551c6807def8c8bdb56705bd69"
-    }    ,
+    },
     {
       "id": "mf-7jv1r00oshyhw4m",
       "name": "ePlus112 pw 123",
@@ -5947,7 +5929,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "123",
       "checksum": "e70aa25be64093f6d10416e8e5e8bb5156e6166ac382d4cc458051c6036992b0"
-    }    ,
+    },
     {
       "id": "mf-ek9do3t37nvc2cs",
       "name": "ePlus114 pw 123",
@@ -5961,7 +5943,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "123",
       "checksum": "d75f6f9c9a57d5f2bb1058eb7442dc6f83a5985cdc933b7827f1ebacfed8cbc1"
-    }    ,
+    },
     {
       "id": "mf-tcr6nwe13s9pgyn",
       "name": "ePlus115 pw 1",
@@ -5975,7 +5957,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "1",
       "checksum": "89650566fc259d9c7337e9a9ca1eb047e069bb42d0fccf6c1e7279762f13dfd5"
-    }    ,
+    },
     {
       "id": "mf-nhbm1xkji0okito",
       "name": "EPlus92",
@@ -5989,7 +5971,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "6b603a4d1b65d3d5a7afd1f3a3c2febab0c73958c445eadc2f354edfaef17ac0"
-    }    ,
+    },
     {
       "id": "mf-cicbimiv7v1jxah",
       "name": "01-شرح البرنامج",
@@ -6003,7 +5985,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "4df01a1100406da5393c23234206c076d58b62015e6cfce17edcdaade1afe59c"
-    }    ,
+    },
     {
       "id": "mf-e6d6mmrnq9goqb0",
       "name": "02-شرح البرنامج",
@@ -6017,7 +5999,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "fbf2daa429872c0b476417a2dab5e0e6f0cd16bea4b78c03c487e0cdcdb116c2"
-    }    ,
+    },
     {
       "id": "mf-t4uok4erzctqsua",
       "name": "شرح البرنامج",
@@ -6031,7 +6013,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "f4bbbc4dcadd7df31f2f745648dd36084198ab4572d175c1354b7bb866e8974d"
-    }    ,
+    },
     {
       "id": "mf-ajwlyq5grb8kvru",
       "name": "B2B",
@@ -6045,7 +6027,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "65775f203ac3b3f249fe5282d80f58edb80fecbd6a381d143f901e73adea8973"
-    }    ,
+    },
     {
       "id": "mf-4yk1n8w7b769jt1",
       "name": "إطار & مساعدة",
@@ -6059,7 +6041,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "699da689ed96dd88e0d2d724fa40d84db4c3fb23cd4855a7e79f7e4b10c4b5dd"
-    }    ,
+    },
     {
       "id": "mf-n3s942gk85sxryo",
       "name": "الموردين",
@@ -6073,7 +6055,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "82ee891949ee8ca4d7d4182f62274241cb7dfb39f25002d30f539f9025edb7fe"
-    }    ,
+    },
     {
       "id": "mf-zqiedlc41by4vzq",
       "name": "المبيعات",
@@ -6087,7 +6069,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "59d746d8fd2126074cfe179b07808e881b53c3fb739fe4426a65ec4fe8f1e82d"
-    }    ,
+    },
     {
       "id": "mf-stgv5hnioy7qn55",
       "name": "المخازن",
@@ -6101,7 +6083,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "cfc602399372bca9223167d79e5ee06e7e94f21a1f6246c1b8c4354d7810edfd"
-    }    ,
+    },
     {
       "id": "mf-e47irkxhh9wmo21",
       "name": "المشتريات",
@@ -6115,7 +6097,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "3094ec517cb0fe0f3b52d8ce6bfa682aabf88b7a359a102fd025b067cce52629"
-    }    ,
+    },
     {
       "id": "mf-kxe4pwqlr534mtf",
       "name": "العملاء",
@@ -6129,7 +6111,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "6023893aed7aebad400c722a304a28c1b85d746bb596ad43e7f61acc88df98b2"
-    }    ,
+    },
     {
       "id": "mf-b5uwl50ty7gy8hp",
       "name": "بيانات عامة",
@@ -6143,7 +6125,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "e932d13c0570da81095c1123953cbcd97656bd067b10b4531cdc27678bd27430"
-    }    ,
+    },
     {
       "id": "mf-wshpmz5xzltrmbk",
       "name": "شئون عاملين",
@@ -6157,7 +6139,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "fb48ea36b52d6aacb092d1ae177099006d59ba41dd507e15db579ae8db069e1a"
-    }    ,
+    },
     {
       "id": "mf-7mqok64r03ezmej",
       "name": "شاشـة الأصنــاف",
@@ -6171,7 +6153,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "d10fde94f6b1c2b902f458bd754ad4f5ff895e5b4c53cd83f76992e4c427a051"
-    }    ,
+    },
     {
       "id": "mf-w9c5s2evrr0x1ew",
       "name": "شاشة فواتير البيع المعلقه",
@@ -6185,7 +6167,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "aac45865b2a26a3dcbcdb4664186ef7b47d41c8da1463d6a645220f5e9b37298"
-    }    ,
+    },
     {
       "id": "mf-0i30uawmbk5v2bd",
       "name": "شاشة مرتجع البيع العام",
@@ -6199,7 +6181,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "5e6d84054cfdbdd5d5e52dc7835e0f93d7c9d1a76038c89aabd01119a22ee4f2"
-    }    ,
+    },
     {
       "id": "mf-g9jdkopif44ulqp",
       "name": "شاشة مرتجع البيع",
@@ -6213,7 +6195,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "991777206cacd9b3a9018fc84e1726088baaaf7ad49bbdcbcee28cbce596fbbf"
-    }    ,
+    },
     {
       "id": "mf-8x941p7913bxt9r",
       "name": "شاشة مرتجع الشراء العام",
@@ -6227,7 +6209,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "60b1f3d0d5fe3e72a71b0cbe63938b6edf60d7c92ea9a0a6300e77740c42685f"
-    }    ,
+    },
     {
       "id": "mf-200z5w3kwwdy2i2",
       "name": "شاشة مرتجع الشراء على فاتوره",
@@ -6241,7 +6223,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "f38b5d8a039f7ec6bb3a4e0a72c4619fc738b1320060e87463de083233ca02cb"
-    }    ,
+    },
     {
       "id": "mf-vfnip7cwe8xfmw2",
       "name": "شاشة المبيعات",
@@ -6255,7 +6237,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "a365850872239f386e7b3c3a70148620357e58575c0503eee33f96e89eb309cb"
-    }    ,
+    },
     {
       "id": "mf-rm2mqvuml69gfqo",
       "name": "شاشة المشتريات",
@@ -6269,7 +6251,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "7808c766d655ba0c8b10a8a9ffda294671982175bb42e305e587ec25b19d272e"
-    }    ,
+    },
     {
       "id": "mf-29p25gqhorq0y67",
       "name": "شاشة العملاء",
@@ -6283,7 +6265,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "f8f1f121e2cba6481c560edfe73d823403e66eda34d29cb98f7bf30b61b9b761"
-    }    ,
+    },
     {
       "id": "mf-sdweny287guc94i",
       "name": "شاشة تسليم الدرج",
@@ -6297,7 +6279,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "23cf89dbc6d2b4019c1871cafd33dd10b24d20a8b7709b3cbc431db83efec838"
-    }    ,
+    },
     {
       "id": "mf-27qfqc5dsid2r58",
       "name": "شاشة تسوية الكميات",
@@ -6311,7 +6293,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "48d2a2fb73659bee7bdf37bcbcba3be3731de568c29c56d0e1848939a6a4b55b"
-    }    ,
+    },
     {
       "id": "mf-ahjke3krz4e66sc",
       "name": "01البداية مع البرنامج-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6325,7 +6307,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "e6e740784bf7b416d32e1f89c28dc8395476ec59f1d9c34c18cbf229d29b5d27"
-    }    ,
+    },
     {
       "id": "mf-bstno6mvyv3szm5",
       "name": "02بيانات عامة-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6339,7 +6321,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "034769a597fb052a0ab8ad67107691f96078dfd724e45993ecb74b827e60efa9"
-    }    ,
+    },
     {
       "id": "mf-dt5yce9p46cd5cu",
       "name": "03اضافة الموظف واعطاء صلاحيات-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6353,7 +6335,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "b16ec6a3f285b4d53c435e15889226272ecbdd6866d571bf8499433cdeb98e9f"
-    }    ,
+    },
     {
       "id": "mf-isnez0jh9bpmp1s",
       "name": "04الاصناف-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6367,7 +6349,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "7acfd84e201cf7e79772490fee951b0b967aed9bb59b20a7ff13da5c6b7d1182"
-    }    ,
+    },
     {
       "id": "mf-a4jgne0ctmoytl4",
       "name": "05الارصدة الافتتاحية-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6381,7 +6363,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "4d60290f7a024636dfc9239ef1cd7d4ffd970a356b1a9fc39e5122d5fbb57b3d"
-    }    ,
+    },
     {
       "id": "mf-sxjp1fn54ec2pou",
       "name": "06فاتورة الشراء-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6395,7 +6377,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "3f38f992fdc79463f4f9afa1ae3d206d19d807578f7a01d03d7243b475921541"
-    }    ,
+    },
     {
       "id": "mf-645enz130i9mjo7",
       "name": "07فاتورة البيع ومرتجع البيع-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6409,7 +6391,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "51e7d9c3ef672707fe20108e1643fdaa11f9df860bba4322ff0eaa0a14f1a643"
-    }    ,
+    },
     {
       "id": "mf-clqx6ai2cba7akn",
       "name": "08مرتجع البيع العام-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6423,7 +6405,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "5b5cb1c372f0b522febde88a4aefafe37349e0992fd2bb2afb5dcce91b8aed1c"
-    }    ,
+    },
     {
       "id": "mf-gxqsqkp42nt4kvm",
       "name": "09صرف وتوريد نقدية-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6437,7 +6419,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "72de3f8b23d0e31a3e2c8f840898b43ea6b6f10836a3d5842b76a92183ba2e74"
-    }    ,
+    },
     {
       "id": "mf-utkry6h1888gx4d",
       "name": "10تسليم الدرج-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6451,7 +6433,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "df602a4cd8241473b110b6da939af81bb9f3da91fe8770c293741576805b8e60"
-    }    ,
+    },
     {
       "id": "mf-j6khz0gvb6tbbmu",
       "name": "11تسوية كميات الاصناف-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6465,7 +6447,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "8f8e43b15e8f5c438503bacb37842aa945e7141c78cb33ce6cfff1d41c44a34a"
-    }    ,
+    },
     {
       "id": "mf-0fi8ayx5oy9xsn7",
       "name": "12تغيير وحدات الاصناف-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6479,7 +6461,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "b98fe873aa73ac7327bb8e138762e8d9ed57e528ce3e3c4d94dabb061e04277f"
-    }    ,
+    },
     {
       "id": "mf-kzyvpu7j0vr4pct",
       "name": "13تقسيم المخازن وتحويل الاصناف-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6493,7 +6475,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "0a800bf6ff81f877f8911ab5620108bf776b9fdb57bb1ff2512b39dae5525186"
-    }    ,
+    },
     {
       "id": "mf-z7p5o3wt8y7b6ur",
       "name": "14الموردين والنقدية وحركة الاوراق المالية-شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6507,7 +6489,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "261a44a0d1fba60ac569f24bff584ac0da3654686a0e49df62397f86452f6dfd"
-    }    ,
+    },
     {
       "id": "mf-lbashv41c3e252w",
       "name": "15العملاء والتعاقدات - شرح برنامج الصيدليات E-Pharmacy(480P)",
@@ -6521,7 +6503,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "842b45bb62fe8dbb1a4cdf6a197b72f70d4d41c138d8405fc0c6f60c0baa9567"
-    }    ,
+    },
     {
       "id": "mf-8q3kpplt8eft8kc",
       "name": "01البداية مع البرنامج",
@@ -6535,7 +6517,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "0075dab24022cf21da786d9ccd7b30ce1069168dfaf1314a08e2c8f9ec6dea8a"
-    }    ,
+    },
     {
       "id": "mf-wm2dx9tuhmd5rrn",
       "name": "02بيانات عامة",
@@ -6549,7 +6531,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "bd891f22f3a28c3321731e2f5d9f898e7db429329f14fd0456abef97f9adf8ec"
-    }    ,
+    },
     {
       "id": "mf-3mx1k9s01jnkevh",
       "name": "03اضافة الموظف واعطاء صلاحيات",
@@ -6563,7 +6545,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "d3cece511d26f40b9eaaa686719676d129f33f8bccff5bab929b9af3ffffdfce"
-    }    ,
+    },
     {
       "id": "mf-3zjfen0usn63szh",
       "name": "04الاصناف",
@@ -6577,7 +6559,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "dcb1987fb971c4fb8a7023412dac4acbae646ed34475dfa1a24624506375f19d"
-    }    ,
+    },
     {
       "id": "mf-0rlzclj4j0npjj5",
       "name": "05الارصدة الافتتاحية",
@@ -6591,7 +6573,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "c4ee7f3deefeb5352f58e22a4cd7edd2e8f8ec0fc6d630811d2acb33ab940676"
-    }    ,
+    },
     {
       "id": "mf-60ww4zfq5khe6qm",
       "name": "06فاتورة الشراء",
@@ -6605,7 +6587,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "364fa7427eb6fe8b74d6bce7cfee56b0c1a383eae78039839bc9bba39d6ccb82"
-    }    ,
+    },
     {
       "id": "mf-sb63826g9zhnqhi",
       "name": "07فاتورة البيع ومرتجع البيع",
@@ -6619,7 +6601,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "a45fac37bcff0c31e39eba33293b5aa2c3870fff3d8f65ac347d85f63b3ce9fa"
-    }    ,
+    },
     {
       "id": "mf-6g1pu0as7rvhr84",
       "name": "08مرتجع البيع العام",
@@ -6633,7 +6615,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "de44ff8dd58a0979dd3339e3124d69b7375aec391f32f0eac1ea7f8208442743"
-    }    ,
+    },
     {
       "id": "mf-iht7ei3nybgjdq6",
       "name": "09صرف وتوريد نقدية",
@@ -6647,7 +6629,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "cacc392ecedec40f0c33ff25567138d9acdcf891bab6f5ae75f0af1a6b86e9df"
-    }    ,
+    },
     {
       "id": "mf-h8nigziv6p08mfi",
       "name": "10تسليم الدرج",
@@ -6661,7 +6643,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "c45188d116c50f7dea8719f4229b37802059176c45426d8d318b498cd350835b"
-    }    ,
+    },
     {
       "id": "mf-lfm061rbn47edvi",
       "name": "11تسوية كميات الاصناف",
@@ -6675,7 +6657,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "ca5a1b889456dd3ebc511945378e5979e1b77745b68567b3a276424f9a5f8c86"
-    }    ,
+    },
     {
       "id": "mf-at23w86743t3tkl",
       "name": "12تغيير وحدات الاصناف",
@@ -6689,7 +6671,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "c9d0877258624e3bf532af721ba96197879d50b0e3defab5f1572b11de155d5a"
-    }    ,
+    },
     {
       "id": "mf-mehsda852aqt625",
       "name": "13تقسيم المخازن وتحويل الاصناف",
@@ -6703,7 +6685,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "eb018734612b73d119ad5a61b861806779f3609921a353eaae81a2f208b471fb"
-    }    ,
+    },
     {
       "id": "mf-9ph6ck5lsck1gvm",
       "name": "14الموردين والنقدية وحركة الاوراق المالية",
@@ -6717,7 +6699,7 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "2d4929baa2ebfb6d158938c3a2f7418e84bdc208066093c3e03964b6df178737"
-    }    ,
+    },
     {
       "id": "mf-wz8n3rhyt8doj7s",
       "name": "15العملاء والتعاقدات",
@@ -6731,6 +6713,67 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "659b942b686dd6960e2525ccba6374f56884cdccf7d4d37dce98d5021635e1d6"
+    },
+    {
+      "id": "my-k-library",
+      "name": "My K Library & E-Books Archive",
+      "filename": "LibraryAppVB.exe",
+      "description": "Dual physical library manager & online e-book reader with Supabase cloud database sync, Touch Screen Kiosk mode, and instant browser reading.",
+      "category": "utilities",
+      "tag": "Web & Desktop",
+      "size": "Web App + 98 KB EXE",
+      "url": "https://web-rho-six-87.vercel.app",
+      "urlLabel": "Open App",
+      "mirrors": [
+        {
+          "label": "Download Windows .EXE",
+          "url": "LibraryAppVB.exe"
+        }
+      ],
+      "password": "",
+      "checksum": ""
+    },
+    {
+      "id": "easy-sysprep-4",
+      "name": "Easy Sysprep v4",
+      "filename": "_ArmaanPC.com_EasySysprep4.rar",
+      "description": "Windows system deployment, image customization, and sysprep preparation utility.",
+      "category": "software-os",
+      "tag": "Sysprep Tool",
+      "size": "43.3 MB",
+      "url": "https://www.mediafire.com/file_premium/z4kdjdbt9c9quuq/_ArmaanPC.com_EasySysprep4.rar/file",
+      "urlLabel": "Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "eceffe34a3c0eb1449b0ee3d6bbd2cee6a6efa2f06ac016f347dad6f89dd026e"
+    },
+    {
+      "id": "rufus-4-11-x86",
+      "name": "Rufus 4.11 (32-bit x86)",
+      "filename": "rufus-4.11_x86.exe",
+      "description": "Rufus bootable USB creator utility 32-bit x86 edition for legacy Windows systems.",
+      "category": "software-os",
+      "tag": "Bootable USB",
+      "size": "1.80 MB",
+      "url": "https://www.mediafire.com/file_premium/54hkmh6cpructup/rufus-4.11_x86.exe/file",
+      "urlLabel": "Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "da70b5a684b643798eb20b720bf362e01ab6987ec47bd99a12f6e2d950a446bf"
+    },
+    {
+      "id": "sql-2000-ms-sql-server-zip",
+      "name": "Microsoft SQL Server 2000 System Files",
+      "filename": "Microsoft Sql Server.zip",
+      "description": "Essential Microsoft SQL Server 2000 components and Binn DLL helper archive.",
+      "category": "other-tools",
+      "tag": "SQL Hotfix",
+      "size": "441 KB",
+      "url": "https://www.mediafire.com/file_premium/hblx7bex2xo3zyd/Microsoft_Sql_Server.zip/file",
+      "urlLabel": "Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "9035106ee0e3aa4a4b82f57be94f2a0a285b85c9aa0bb856b3461ad8d7222ff5"
     }
   ]
 };
