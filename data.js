@@ -74,6 +74,20 @@ window.SITE_CONFIG = {
   ],
   "files": [
     {
+      "id": "eplus-admin-3-29",
+      "name": "e-Plus Admin Support v3.29",
+      "filename": "e-Plus Admin3.29.7z",
+      "description": "Latest e-Plus Admin Support utility v3.29 (7z Archive) for database administration, maintenance, and support.",
+      "category": "eplus-db",
+      "tag": "Admin Tool",
+      "size": "1.72 MB",
+      "url": "downloads/e-Plus%20Admin3.29.7z",
+      "urlLabel": "Direct Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": ""
+    },
+    {
       "id": "eplus-upgrade-119-admin",
       "name": "Eplus Upgrade v119.0 (pw: admin)",
       "filename": "EplusUpgrade119.0   pw admin.zip",
@@ -201,15 +215,17 @@ window.SITE_CONFIG = {
     },
     {
       "id": "printer-share-fixer",
-      "name": "Printer Share Fixer",
+      "name": "PrinterShareFixer \"By Dr. Hany Hossam\"",
       "filename": "PrinterShareFixer.exe",
-      "description": "Lightweight executable tool to quickly resolve Windows network printer sharing errors.",
+      "description": "\"By Dr. Hany Hossam\" — Lightweight executable tool to quickly resolve Windows network printer sharing errors.",
       "category": "utilities",
-      "tag": "Network Fix",
+      "tag": "By Dr. Hany Hossam",
       "size": "83 KB",
-      "url": "https://www.mediafire.com/file_premium/140dyd9b1mfp5kj/PrinterShareFixer.exe/file",
-      "urlLabel": "Download",
-      "mirrors": [],
+      "url": "downloads/PrinterShareFixer.exe",
+      "urlLabel": "Direct Download",
+      "mirrors": [
+        "https://www.mediafire.com/file_premium/140dyd9b1mfp5kj/PrinterShareFixer.exe/file"
+      ],
       "password": "",
       "checksum": "a0d9290ecf6fea48881528e9bf43f282bf9d4c01e9e5c5ea6a2d2c8e70511362"
     },
@@ -968,9 +984,11 @@ window.SITE_CONFIG = {
       "category": "eplus-116",
       "tag": "RAR Archive",
       "size": "285.6 KB",
-      "url": "https://www.mediafire.com/file_premium/parc3c55hj2jrm2/e-Plus_rep_service4.9.rar/file",
-      "urlLabel": "Download",
-      "mirrors": [],
+      "url": "downloads/e-Plus_rep_service4.9.rar",
+      "urlLabel": "Direct Download",
+      "mirrors": [
+        "https://www.mediafire.com/file_premium/parc3c55hj2jrm2/e-Plus_rep_service4.9.rar/file"
+      ],
       "password": "",
       "checksum": "1522d7660a0897142308bb91fd958bfb3077414b3e7aff870de5f87d66188745"
     },
@@ -1080,9 +1098,11 @@ window.SITE_CONFIG = {
       "category": "eplus-116",
       "tag": "RAR Archive",
       "size": "722.8 KB",
-      "url": "https://www.mediafire.com/file_premium/pub3b6talkebczb/ePlus_Replication14.7.42.rar/file",
-      "urlLabel": "Download",
-      "mirrors": [],
+      "url": "downloads/ePlus%20Replication14.7.42.rar",
+      "urlLabel": "Direct Download",
+      "mirrors": [
+        "https://www.mediafire.com/file_premium/pub3b6talkebczb/ePlus_Replication14.7.42.rar/file"
+      ],
       "password": "",
       "checksum": "07937bd515c42baec96566c47110e5238b34c13d14811d3c55b1a6b670df0fbf"
     },
@@ -5392,9 +5412,11 @@ window.SITE_CONFIG = {
       "category": "eplus-db",
       "tag": "Replication",
       "size": "722.8 KB",
-      "url": "https://www.mediafire.com/file_premium/os3tpr3dh585k9e/ePlus_Replication14.7.42.rar/file",
-      "urlLabel": "Download",
-      "mirrors": [],
+      "url": "downloads/ePlus%20Replication14.7.42.rar",
+      "urlLabel": "Direct Download",
+      "mirrors": [
+        "https://www.mediafire.com/file_premium/os3tpr3dh585k9e/ePlus_Replication14.7.42.rar/file"
+      ],
       "password": "",
       "checksum": "07937bd515c42baec96566c47110e5238b34c13d14811d3c55b1a6b670df0fbf"
     },

@@ -1160,3 +1160,262 @@ button.meta-pill:hover {
     align-self: flex-end;
   }
 }
+
+/* ============================================================================
+   HERO PERMANENT DIRECT DOWNLOADS STRIP
+   ============================================================================ */
+
+.hero-permanent-tools {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  padding: 0.95rem 1.15rem;
+  box-shadow: var(--shadow-card);
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  transition: border-color 0.15s ease;
+}
+
+.perm-tools-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.perm-tools-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.perm-title-icon {
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.perm-tools-title {
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.perm-tools-badge {
+  font-size: 0.68rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.perm-tools-desc {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+.perm-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+  gap: 0.65rem;
+}
+
+.perm-tool-card {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.8rem;
+  background: var(--bg-body);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.16s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.perm-tool-card:hover {
+  border-color: #2563eb;
+  background: var(--bg-card);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+  text-decoration: none;
+}
+
+.perm-card-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-blue {
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
+
+.icon-emerald {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.icon-amber {
+  background: rgba(245, 158, 11, 0.14);
+  color: #d97706;
+}
+
+.icon-violet {
+  background: rgba(139, 92, 246, 0.1);
+  color: #7c3aed;
+}
+
+.icon-indigo {
+  background: rgba(99, 102, 241, 0.1);
+  color: #4f46e5;
+}
+
+.perm-card-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.perm-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow: hidden;
+}
+
+.perm-card-title {
+  font-size: 0.815rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.perm-card-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.perm-pill {
+  font-size: 0.65rem;
+  font-weight: 650;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.pill-blue {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.pill-emerald {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.pill-violet {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.pill-indigo {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.pill-hany {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  font-weight: 700;
+}
+
+.perm-card-dl {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  background: var(--border-subtle);
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.perm-tool-card:hover .perm-card-dl {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .perm-tool-card {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="dark"] .perm-tool-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .pill-hany {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fcd34d;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+[data-theme="dark"] .pill-blue {
+  background: rgba(37, 99, 235, 0.22);
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .pill-emerald {
+  background: rgba(16, 185, 129, 0.22);
+  color: #6ee7b7;
+}
+
+[data-theme="dark"] .pill-violet {
+  background: rgba(139, 92, 246, 0.22);
+  color: #c4b5fd;
+}
+
+[data-theme="dark"] .pill-indigo {
+  background: rgba(99, 102, 241, 0.22);
+  color: #a5b4fc;
+}
+
+@media (max-width: 768px) {
+  .perm-tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .perm-tools-grid {
+    grid-template-columns: 1fr;
+  }
+  .perm-tools-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

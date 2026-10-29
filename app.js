@@ -318,12 +318,12 @@
 
         <div class="item-actions">
           <div class="action-links-group">
-            <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <a href="${escapeHtml(item.url)}" ${item.url.startsWith("http") ? 'target="_blank" rel="noopener noreferrer"' : `download="${escapeHtml(item.filename || "")}"`} class="btn-primary">
               ${actionIcon}
               <span>${escapeHtml(actionLabel)}</span>
             </a>
             ${mirrorsHtml}
-            <button type="button" class="btn-copy-link" data-copy="${escapeHtml(item.url)}" data-copy-label="link for ${escapeHtml(item.name)}" title="Copy direct link">
+            <button type="button" class="btn-copy-link" data-copy="${escapeHtml(item.url.startsWith("http") ? item.url : window.location.origin + window.location.pathname.replace(/[^/]*$/, '') + item.url)}" data-copy-label="link for ${escapeHtml(item.name)}" title="Copy direct link">
               ${ICONS.copy}
             </button>
           </div>
