@@ -1,8 +1,5 @@
-/**
- * ============================================================================
- * #EPLUS SOFTWARE & ESSENTIAL FILES CONFIGURATION (data.js)
- * ============================================================================
- */
+// EPLUS Software Directory Data Store
+// Auto-synchronized with MediaFire
 
 window.SITE_CONFIG = {
   "site": {
@@ -74,6 +71,36 @@ window.SITE_CONFIG = {
   ],
   "files": [
     {
+      "id": "eplus-admin-3-30",
+      "name": "e-Plus Admin Support v3.30",
+      "filename": "e-Plus Admin3.30.rar",
+      "description": "Latest e-Plus Admin Support utility v3.30 (RAR Archive) for database administration, maintenance, and support.",
+      "category": "eplus-db",
+      "tag": "Admin Tool",
+      "size": "1.75 MB",
+      "url": "downloads/e-Plus%20Admin3.30.rar",
+      "urlLabel": "Direct Download",
+      "mirrors": [
+        "https://www.mediafire.com/file_premium/mi27j9lycs5y404/e-Plus_Admin3.30.rar/file"
+      ],
+      "password": "",
+      "checksum": "6b56f38ae6f5174e02a80a4d8ec4284ac28507f11b14f939b6e5828fe344abbe"
+    },
+    {
+      "id": "fdm-download-manager-x64",
+      "name": "Free Download Manager (FDM 64-bit)",
+      "filename": "fdm_x64_setup.exe",
+      "description": "Free Download Manager (FDM) v6.35.2 official 64-bit installer for fast, multi-threaded high-speed downloads, resume support, and torrent management.",
+      "category": "utilities",
+      "tag": "Downloader",
+      "size": "49.7 MB",
+      "url": "downloads/fdm_x64_setup.exe",
+      "urlLabel": "Direct Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "6a3c5beacaa9dce8c70967e4cbf541533ce9438722028b605f7b05c3d1c1fbbb"
+    },
+    {
       "id": "eplus-admin-3-29",
       "name": "e-Plus Admin Support v3.29",
       "filename": "e-Plus Admin3.29.7z",
@@ -83,9 +110,11 @@ window.SITE_CONFIG = {
       "size": "1.72 MB",
       "url": "downloads/e-Plus%20Admin3.29.7z",
       "urlLabel": "Direct Download",
-      "mirrors": [],
+      "mirrors": [
+        "https://www.mediafire.com/file_premium/jtbrrokqtcn8gtg/e-Plus_Admin3.29.7z/file"
+      ],
       "password": "",
-      "checksum": ""
+      "checksum": "1b8ee46c823e2034490e96d98894894823b08365f9526355b3ecbb140793e396"
     },
     {
       "id": "eplus-upgrade-119-admin",
@@ -284,6 +313,76 @@ window.SITE_CONFIG = {
       "mirrors": [],
       "password": "",
       "checksum": "54487aa85a814559638b69667eba10fe8ee2fbe0a2e93187bfa1c8a969ff306b"
+    },
+    {
+      "id": "icon-replicate",
+      "name": "Replication Icon Resource",
+      "filename": "replicate.ico",
+      "description": "Application icon resource for e-Plus replication services and sync utilities.",
+      "category": "utilities",
+      "tag": "App Icon",
+      "size": "390.6 KB",
+      "url": "https://www.mediafire.com/file_premium/tg5yt9dow4zy76u/replicate.ico/file",
+      "urlLabel": "Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "3404bab35b149afbe28ff8f352c64bf8f4482f939f90b23bcb7902eb1cc5fd0d"
+    },
+    {
+      "id": "icon-store",
+      "name": "Store Icon Resource",
+      "filename": "store.ico",
+      "description": "Application icon resource for e-Plus Store module.",
+      "category": "utilities",
+      "tag": "App Icon",
+      "size": "391.4 KB",
+      "url": "https://www.mediafire.com/file_premium/38ccwnib14ybiei/store.ico/file",
+      "urlLabel": "Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "6f8b52f0402a143ce3d99aaa14061fffae719da8db6ca2fe1dd0867c0128d696"
+    },
+    {
+      "id": "icon-store4",
+      "name": "Store 4 Icon Resource",
+      "filename": "store4.ico",
+      "description": "Application icon resource for e-Plus Store v4 module.",
+      "category": "utilities",
+      "tag": "App Icon",
+      "size": "384.0 KB",
+      "url": "https://www.mediafire.com/file_premium/ffgv91p613e232b/store4.ico/file",
+      "urlLabel": "Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "9a8b5bc8bda7579f3ebae11e75918565f2671db247f5c8b6b1df97134aab116d"
+    },
+    {
+      "id": "runasdate-x64",
+      "name": "RunAsDate x64",
+      "filename": "runasdate-x64.zip",
+      "description": "RunAsDate utility (64-bit) for running a program in a specified date and time without changing system clock.",
+      "category": "utilities",
+      "tag": "System Tool",
+      "size": "56.7 KB",
+      "url": "https://www.mediafire.com/file_premium/nq2uiqci8iy9axc/runasdate-x64.zip/file",
+      "urlLabel": "Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "647ea1883269a8478a4c84cd33f4b8a6f1dab0aa2bf3703e7f344827fc8a3d9e"
+    },
+    {
+      "id": "runasdate-x86",
+      "name": "RunAsDate 32-bit",
+      "filename": "runasdate.zip",
+      "description": "RunAsDate utility (32-bit) for running a program in a specified date and time without changing system clock.",
+      "category": "utilities",
+      "tag": "System Tool",
+      "size": "46.5 KB",
+      "url": "https://www.mediafire.com/file_premium/p856j9kckore1q0/runasdate.zip/file",
+      "urlLabel": "Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "ceec79526b06703c1806771b5af45b282b8511ba071b1ed5e702a7e8b46027b8"
     },
     {
       "id": "revo-uninstaller-pro",
