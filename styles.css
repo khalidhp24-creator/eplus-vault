@@ -1563,8 +1563,7 @@ button.meta-pill:hover {
   background-color: rgba(239, 68, 68, 0.08);
 }
 
-/* Unauthenticated State: Keep ONLY topbar and search bar/hero visible; hide catalog & rest */
-body.unauthenticated .hero-permanent-tools,
+/* Unauthenticated State: Keep topbar, permanent downloads, and search bar visible; hide directory catalog & tabs */
 body.unauthenticated .controls-bar,
 body.unauthenticated .directory-main,
 body.unauthenticated .footer {
@@ -1572,18 +1571,13 @@ body.unauthenticated .footer {
 }
 
 body.unauthenticated .hero {
-  min-height: calc(100vh - 80px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 0 80px 0;
+  padding-bottom: 60px;
 }
 
-body.unauthenticated .hero-layout {
-  width: 100%;
-  max-width: 680px;
-  text-align: center;
-  margin: 0 auto;
+body.unauthenticated .hero-permanent-tools {
+  display: block !important;
+  margin-top: 8px;
+  margin-bottom: 24px;
 }
 
 body.unauthenticated .search-wrapper {
