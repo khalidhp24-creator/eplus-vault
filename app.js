@@ -26,6 +26,11 @@
   let currentTheme = localStorage.getItem("eplus_theme_v2") || config.site.defaultTheme || "light";
   let toastTimeout = null;
 
+  // Master Passcode Auth Gate (SHA-256 hash of 'eplus2026')
+  const MASTER_HASH = "abb48cfb7c3ef837d77c518a26ef8bcf949b82d74ca1b8c5db3623c8fbfe205e";
+  const AUTH_STORAGE_KEY = "eplus_auth_verified_v1";
+  let isAuthenticated = localStorage.getItem(AUTH_STORAGE_KEY) === "true";
+
   // DOM Elements
   const brandTitleEl = document.getElementById("brand-title");
   const brandBadgeEl = document.getElementById("brand-badge");
@@ -44,6 +49,15 @@
   const themeToggleBtn = document.getElementById("theme-toggle-btn");
   const toastEl = document.getElementById("toast");
   const toastMessageEl = document.getElementById("toast-message");
+  const authToggleBtn = document.getElementById("auth-toggle-btn");
+  const authBtnLabel = document.getElementById("auth-btn-label");
+  const authModalBackdrop = document.getElementById("auth-modal-backdrop");
+  const authModalCloseBtn = document.getElementById("auth-modal-close-btn");
+  const authModalCard = authModalBackdrop ? authModalBackdrop.querySelector(".auth-modal-card") : null;
+  const authForm = document.getElementById("auth-form");
+  const authPasscodeInput = document.getElementById("auth-passcode-input");
+  const authVisibilityBtn = document.getElementById("auth-visibility-btn");
+  const authErrorMsg = document.getElementById("auth-error-msg");
 
   // SVG Icons
   const ICONS = {
@@ -395,6 +409,125 @@
   }
 
   // Initialize Site
+  // SHA-256 helper using subtle crypto API with fallback
+  async function sha256Hex(str) {
+    if (window.crypto && crypto.subtle && window.TextEncoder) {
+      try {
+        const buffer = new TextEncoder().encode(str);
+        const hashBuffer = await crypto.subtle.digest("SHA-256", buffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+      } catch (err) {
+        // Fall back below
+      }
+    }
+    // Simple fast fallback hash for compatibility
+    return (str === "eplus2026") ? MASTER_HASH : "invalid";
+  }
+
+  function updateAuthUI() {
+    if (isAuthenticated) {
+      document.body.classList.remove("unauthenticated");
+      if (authToggleBtn) {
+        authToggleBtn.classList.add("authenticated");
+        authToggleBtn.title = "Authenticated (Click to Log Out)";
+        const lockIcon = authToggleBtn.querySelector(".auth-lock-icon");
+        const unlockIcon = authToggleBtn.querySelector(".auth-unlock-icon");
+        if (lockIcon) lockIcon.style.display = "none";
+        if (unlockIcon) unlockIcon.style.display = "inline-block";
+      }
+      if (authBtnLabel) authBtnLabel.textContent = "Log Out";
+      if (searchInputEl) {
+        searchInputEl.placeholder = `Search ${config.files.length} files, drivers, SQL, Eplus versions, or passwords...`;
+        searchInputEl.readOnly = false;
+      }
+    } else {
+      document.body.classList.add("unauthenticated");
+      if (authToggleBtn) {
+        authToggleBtn.classList.remove("authenticated");
+        authToggleBtn.title = "Click to Log In and Unlock Catalog";
+        const lockIcon = authToggleBtn.querySelector(".auth-lock-icon");
+        const unlockIcon = authToggleBtn.querySelector(".auth-unlock-icon");
+        if (lockIcon) lockIcon.style.display = "inline-block";
+        if (unlockIcon) unlockIcon.style.display = "none";
+      }
+      if (authBtnLabel) authBtnLabel.textContent = "Log In";
+      if (searchInputEl) {
+        searchInputEl.placeholder = "Click or press / to log in and unlock directory...";
+        searchInputEl.readOnly = true;
+      }
+    }
+  }
+
+  function openAuthModal() {
+    if (authModalBackdrop) {
+      authModalBackdrop.hidden = false;
+      if (authErrorMsg) {
+        authErrorMsg.style.display = "none";
+        authErrorMsg.textContent = "";
+      }
+      if (authPasscodeInput) {
+        authPasscodeInput.value = "";
+        setTimeout(() => authPasscodeInput.focus(), 80);
+      }
+    }
+  }
+
+  function closeAuthModal() {
+    if (authModalBackdrop) {
+      authModalBackdrop.hidden = true;
+      if (authPasscodeInput) authPasscodeInput.blur();
+    }
+  }
+
+  async function handleAuthSubmit() {
+    if (!authPasscodeInput) return;
+    const passcode = authPasscodeInput.value.trim();
+    if (!passcode) {
+      showAuthError("Please enter the passcode.");
+      return;
+    }
+
+    const hashed = await sha256Hex(passcode);
+    if (hashed === MASTER_HASH || passcode === "eplus2026") {
+      isAuthenticated = true;
+      localStorage.setItem(AUTH_STORAGE_KEY, "true");
+      updateAuthUI();
+      closeAuthModal();
+      showToast("Access granted — Catalog unlocked!");
+      renderTabs();
+      renderDirectory();
+      applyView(currentView);
+      if (searchInputEl) {
+        searchInputEl.focus();
+      }
+    } else {
+      showAuthError("Incorrect passcode. Please try again.");
+    }
+  }
+
+  function showAuthError(msg) {
+    if (authErrorMsg) {
+      authErrorMsg.textContent = msg;
+      authErrorMsg.style.display = "block";
+    }
+    if (authModalCard) {
+      authModalCard.classList.remove("shake");
+      void authModalCard.offsetWidth; // Force reflow
+      authModalCard.classList.add("shake");
+    }
+    if (authPasscodeInput) {
+      authPasscodeInput.select();
+    }
+  }
+
+  function handleLogout() {
+    isAuthenticated = false;
+    localStorage.removeItem(AUTH_STORAGE_KEY);
+    updateAuthUI();
+    showToast("Logged out — Catalog locked.");
+  }
+
   function init() {
     if (brandTitleEl && config.site.title) {
       brandTitleEl.textContent = config.site.title;
@@ -451,8 +584,17 @@
         document.activeElement === searchInputEl ||
         ["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName);
 
+      if (e.key === "Escape" && authModalBackdrop && !authModalBackdrop.hidden) {
+        closeAuthModal();
+        return;
+      }
+
       if ((e.key === "/" && !isInputFocused) || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k")) {
         e.preventDefault();
+        if (!isAuthenticated) {
+          openAuthModal();
+          return;
+        }
         searchInputEl.focus();
         searchInputEl.select();
       } else if (e.key === "Escape" && document.activeElement === searchInputEl) {

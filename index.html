@@ -61,6 +61,18 @@
           <span id="root-folder-label">Open Main MediaFire Folder</span>
         </a>
 
+        <button type="button" class="auth-btn" id="auth-toggle-btn" aria-label="Account status" title="Log in or log out">
+          <svg class="auth-lock-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          <svg class="auth-unlock-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 9.9-1" />
+          </svg>
+          <span id="auth-btn-label">Log In</span>
+        </button>
+
         <button type="button" class="icon-btn" id="theme-toggle-btn" aria-label="Toggle color theme"
           title="Toggle color theme"></button>
       </div>
@@ -319,6 +331,57 @@
       </div>
     </div>
   </footer>
+
+  <!-- Log-in Modal for Search Bar Gate -->
+  <div class="auth-modal-backdrop" id="auth-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" hidden>
+    <div class="auth-modal-card">
+      <button type="button" class="auth-modal-close" id="auth-modal-close-btn" aria-label="Close login dialog">&times;</button>
+      <div class="auth-modal-header">
+        <div class="auth-modal-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+        </div>
+        <h2 class="auth-modal-title" id="auth-modal-title">Restricted Catalog Access</h2>
+        <p class="auth-modal-subtitle">Enter the master passcode to unlock search and view the full file catalog.</p>
+      </div>
+
+      <form class="auth-form" id="auth-form" onsubmit="return false;">
+        <div class="auth-input-group">
+          <div class="auth-input-wrapper">
+            <svg class="auth-key-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4" />
+              <path d="m21 2-9.6 9.6" />
+              <circle cx="7.5" cy="15.5" r="5.5" />
+            </svg>
+            <input type="password" id="auth-passcode-input" class="auth-input" placeholder="Enter passcode (e.g. eplus2026)" autocomplete="current-password" required />
+            <button type="button" class="auth-toggle-visibility" id="auth-visibility-btn" aria-label="Show or hide passcode">
+              <svg class="icon-eye" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <svg class="icon-eye-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" />
+                <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" />
+                <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" />
+                <line x1="2" y1="2" x2="22" y2="22" />
+              </svg>
+            </button>
+          </div>
+          <div class="auth-error-msg" id="auth-error-msg" role="alert" style="display:none;"></div>
+        </div>
+
+        <button type="submit" class="auth-submit-btn" id="auth-submit-btn">
+          <span>Unlock Catalog</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
 
   <!-- Copy Notification Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite">
