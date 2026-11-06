@@ -529,6 +529,50 @@
   }
 
   function init() {
+    // 1. Apply Initial Auth State immediately
+    updateAuthUI();
+
+    // 2. Auth Toggle Button in Topbar
+    if (authToggleBtn) {
+      authToggleBtn.addEventListener("click", () => {
+        if (isAuthenticated) {
+          if (confirm("Are you sure you want to log out and lock the catalog?")) {
+            handleLogout();
+          }
+        } else {
+          openAuthModal();
+        }
+      });
+    }
+
+    // 3. Auth Modal Dialog Events
+    if (authModalCloseBtn) {
+      authModalCloseBtn.addEventListener("click", closeAuthModal);
+    }
+    if (authModalBackdrop) {
+      authModalBackdrop.addEventListener("click", (e) => {
+        if (e.target === authModalBackdrop) {
+          closeAuthModal();
+        }
+      });
+    }
+    if (authForm) {
+      authForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        handleAuthSubmit();
+      });
+    }
+    if (authVisibilityBtn && authPasscodeInput) {
+      authVisibilityBtn.addEventListener("click", () => {
+        const isPwd = authPasscodeInput.type === "password";
+        authPasscodeInput.type = isPwd ? "text" : "password";
+        const iconEye = authVisibilityBtn.querySelector(".icon-eye");
+        const iconEyeOff = authVisibilityBtn.querySelector(".icon-eye-off");
+        if (iconEye) iconEye.style.display = isPwd ? "none" : "block";
+        if (iconEyeOff) iconEyeOff.style.display = isPwd ? "block" : "none";
+      });
+    }
+
     if (brandTitleEl && config.site.title) {
       brandTitleEl.textContent = config.site.title;
       document.title = `${config.site.title} — Software & Essential Files`;
@@ -550,13 +594,38 @@
     }
 
     applyTheme(currentTheme);
-    renderTabs();
-    renderDirectory();
-    applyView(currentView);
 
-    // Search Input Listeners
+    // Only render tabs & catalog directory if authenticated
+    if (isAuthenticated) {
+      renderTabs();
+      renderDirectory();
+      applyView(currentView);
+    }
+
+    // Search Bar Gate: intercept clicks and inputs when unauthenticated
     if (searchInputEl) {
+      searchInputEl.addEventListener("click", (e) => {
+        if (!isAuthenticated) {
+          e.preventDefault();
+          openAuthModal();
+        }
+      });
+
+      searchInputEl.addEventListener("keydown", (e) => {
+        if (!isAuthenticated) {
+          if (e.key !== "Tab") {
+            e.preventDefault();
+            openAuthModal();
+          }
+        }
+      });
+
       searchInputEl.addEventListener("input", () => {
+        if (!isAuthenticated) {
+          searchInputEl.value = "";
+          openAuthModal();
+          return;
+        }
         searchQuery = searchInputEl.value;
         if (searchClearBtn) {
           searchClearBtn.hidden = !searchQuery;
@@ -577,17 +646,17 @@
       });
     }
 
-    // Keyboard shortcut '/' or 'Ctrl+K' to focus search bar
+    // Keyboard shortcut '/' or 'Ctrl+K' to focus search bar or trigger auth
     document.addEventListener("keydown", (e) => {
-      if (!searchInputEl) return;
-      const isInputFocused =
-        document.activeElement === searchInputEl ||
-        ["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName);
-
       if (e.key === "Escape" && authModalBackdrop && !authModalBackdrop.hidden) {
         closeAuthModal();
         return;
       }
+
+      if (!searchInputEl) return;
+      const isInputFocused =
+        document.activeElement === searchInputEl ||
+        ["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName);
 
       if ((e.key === "/" && !isInputFocused) || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k")) {
         e.preventDefault();
@@ -705,12 +774,14 @@
           if (remoteConfig.files.length >= config.files.length) {
             config = remoteConfig;
             window.SITE_CONFIG = remoteConfig;
-            if (searchInputEl) {
-              searchInputEl.placeholder = `Search ${config.files.length} files, drivers, SQL, Eplus versions, or passwords...`;
+            if (isAuthenticated) {
+              if (searchInputEl) {
+                searchInputEl.placeholder = `Search ${config.files.length} files, drivers, SQL, Eplus versions, or passwords...`;
+              }
+              renderTabs();
+              renderDirectory();
+              applyView(currentView);
             }
-            renderTabs();
-            renderDirectory();
-            applyView(currentView);
           }
         }
       })
