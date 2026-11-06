@@ -1819,3 +1819,19 @@ body.unauthenticated .search-wrapper:hover {
 .auth-submit-btn:active {
   transform: translateY(0);
 }
+
+
+/* ============================================================================
+   ROBOTO TYPOGRAPHY FOR SITE HEADERS
+   ============================================================================ */
+
+h1, h2, h3, h4, h5, h6,
+.brand-title,
+.hero-title,
+.section-title,
+.perm-tools-title,
+.auth-modal-title {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 100;
+}
