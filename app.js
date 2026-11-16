@@ -107,7 +107,24 @@
       .replace(/'/g, "&#039;");
   }
 
+  const SKIPPED_EXTENSIONS = [".txt", ".xls", ".xlsx"];
+
+  function isSkippedFile(item) {
+    if (!item) return false;
+    const filename = String(item.filename || "").trim().toLowerCase();
+    const name = String(item.name || "").trim().toLowerCase();
+    const url = String(item.url || "").trim().toLowerCase().split("?")[0];
+    return SKIPPED_EXTENSIONS.some(
+      (ext) =>
+        filename.endsWith(ext) ||
+        name.endsWith(ext) ||
+        url.endsWith(ext) ||
+        url.endsWith(ext + "/file")
+    );
+  }
+
   function matchesSearch(item, q) {
+    if (isSkippedFile(item)) return false;
     if (!q) return true;
     const terms = q.toLowerCase().trim().split(/\s+/);
     const haystack = [
@@ -529,6 +546,11 @@
   }
 
   function init() {
+    // 0. Exclude skipped file extensions (.txt, .xls, .xlsx) from catalog & search
+    if (Array.isArray(config.files)) {
+      config.files = config.files.filter((f) => !isSkippedFile(f));
+    }
+
     // 1. Apply Initial Auth State immediately
     updateAuthUI();
 
@@ -771,6 +793,7 @@
       .then((rows) => {
         if (Array.isArray(rows) && rows[0] && rows[0].payload && Array.isArray(rows[0].payload.files)) {
           const remoteConfig = rows[0].payload;
+          remoteConfig.files = remoteConfig.files.filter((f) => !isSkippedFile(f));
           if (remoteConfig.files.length >= config.files.length) {
             config = remoteConfig;
             window.SITE_CONFIG = remoteConfig;

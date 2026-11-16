@@ -1346,6 +1346,16 @@ button.meta-pill:hover {
   color: #4f46e5;
 }
 
+.icon-teal {
+  background: rgba(13, 148, 136, 0.12);
+  color: #0d9488;
+}
+
+.icon-rose {
+  background: rgba(225, 29, 72, 0.12);
+  color: #e11d48;
+}
+
 .perm-card-content {
   flex: 1;
   min-width: 0;
@@ -1425,6 +1435,21 @@ button.meta-pill:hover {
   color: #3730a3;
 }
 
+.pill-teal {
+  background: #ccfbf1;
+  color: #115e59;
+}
+
+.pill-rose {
+  background: #ffe4e6;
+  color: #9f1239;
+}
+
+.pill-amber {
+  background: #fef3c7;
+  color: #92400e;
+}
+
 .pill-hany {
   background: #fef3c7;
   color: #92400e;
@@ -1502,6 +1527,21 @@ button.meta-pill:hover {
 [data-theme="dark"] .pill-indigo {
   background: rgba(99, 102, 241, 0.22);
   color: #a5b4fc;
+}
+
+[data-theme="dark"] .pill-teal {
+  background: rgba(13, 148, 136, 0.22);
+  color: #5eead4;
+}
+
+[data-theme="dark"] .pill-rose {
+  background: rgba(225, 29, 72, 0.22);
+  color: #fda4af;
+}
+
+[data-theme="dark"] .pill-amber {
+  background: rgba(245, 158, 11, 0.22);
+  color: #fcd34d;
 }
 
 @media (max-width: 768px) {
