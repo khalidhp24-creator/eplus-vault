@@ -3,7 +3,7 @@
 
 window.SITE_CONFIG = {
   "site": {
-    "title": "#EPLUS Vault",
+    "title": "≡ EPLUS Software Center",
     "badge": "Directory",
     "subtitle": "Essential software packages, database upgrades, printer drivers, system utilities, and direct MediaFire archives.",
     "author": "Khalid Hassan",
@@ -240,6 +240,20 @@ window.SITE_CONFIG = {
       ],
       "password": "",
       "checksum": ""
+    },
+    {
+      "id": "system-toolkit-guide-ar",
+      "name": "دليل شرح أداة System Toolkit بالعربية (24 أمر)",
+      "filename": "SystemToolkit_Guide_AR.html",
+      "description": "دليل عربي شامل يشرح جميع أوامر أداة SystemToolkit.exe الـ 24 في نقاط وفقرات تفصيلية.",
+      "category": "utilities",
+      "tag": "Arabic Guide",
+      "size": "19.0 KB",
+      "url": "downloads/SystemToolkit_Guide_AR.html",
+      "urlLabel": "Direct Download",
+      "mirrors": [],
+      "password": "",
+      "checksum": "b2ce106a60a1106bc1dacb20d4ca110b6c127dd4d1def195f17014eec5ff1f1b"
     },
     {
       "id": "vnc-viewer-7-9-0",

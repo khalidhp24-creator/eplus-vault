@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دليل أوامر أداة إدارة النظام — ePlus System Toolkit</title>
+  <style>
+    :root {
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --code-bg: #f1f5f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.85;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem 2.25rem;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    }
+
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .print-btn {
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font: inherit;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .print-btn:hover {
+      background: #1d4ed8;
+    }
+
+    .intro-box {
+      background: var(--accent-soft);
+      border-right: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.75rem;
+      font-size: 0.96rem;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    ul.commands-list {
+      padding-right: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+    }
+
+    ul.commands-list li {
+      padding-bottom: 0.85rem;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    ul.commands-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .cmd-title {
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .cmd-desc {
+      margin: 0;
+      color: var(--text-main);
+      font-size: 0.96rem;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: var(--code-bg);
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.88em;
+      direction: ltr;
+      unicode-bidi: isolate;
+      display: inline-block;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+
+      .container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+      }
+
+      .print-btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <header>
+      <div>
+        <h1>دليل شرح أوامر أداة إدارة وصيانة النظام (ePlus System Toolkit)</h1>
+        <p class="subtitle">مرجع عربي شامل لجميع أوامر ملف <code>SystemToolkit.exe</code> (إصدار 32-bit و 64-bit)</p>
+      </div>
+      <button type="button" class="print-btn" onclick="window.print()">طباعة / حفظ PDF</button>
+    </header>
+
+    <section class="intro-box">
+      <p>
+        تُعد أداة <strong>ePlus System Toolkit</strong> مركزاً متكاملاً لإدارة أنظمة ويندوز وصيانتها وإعدادها للعمل مع منظومة
+        <strong>ePlus</strong> وقواعد بيانات SQL ومشاركة الطابعات عبر الشبكة. يُفضَّل تشغيل الأداة بصلاحيات المسؤول
+        (<strong>تشغيل كمسؤول / Run as Administrator</strong>) لضمان تنفيذ جميع تعديلات النظام والسجل (Registry) وجدار الحماية بنجاح،
+        كما تتيح الأداة تشغيل كل أمر على حدة أو تحديد عدة أوامر لتنفيذها دفعة واحدة.
+      </p>
+    </section>
+
+    <section>
+      <h2>قائمة الأوامر الـ 24 بالتفصيل</h2>
+      <ul class="commands-list">
+        <li>
+          <span class="cmd-title">1. عرض معلومات النظام والشبكة والمعرّفات — <code>[0] System Info</code></span>
+          <p class="cmd-desc">
+            يعرض تقريراً تفصيلياً عن إصدار ويندوز ورقم البناء وتاريخ التثبيت ومدة التشغيل (Uptime)، بالإضافة إلى بطاقات الشبكة النشطة
+            (عنوان IP وعنوان MAC والبوابة الافتراضية وخوادم DNS) ومعرّفات الاتصال عن بُعد لبرامج AnyDesk و TeamViewer مع إمكانية نسخها للحافظة فوراً.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">2. تفعيل أو تعطيل وضع السبات — <code>[1] Enable / Disable Hibernation</code></span>
+          <p class="cmd-desc">
+            يفحص الحالة الحالية لوضع السبات (Hibernation) في الجهاز ويتيح تعطيله لإلغاء ملف <code>hiberfil.sys</code> وتوفير مساحة القرص
+            (مع ضبط السكون عند التوصيل بالكهرباء على Never)، أو إعادة تفعيله عند الحاجة.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">3. إنشاء مستخدم مسؤول للدعم الفني — <code>[2] Create Admin User (admin-eplus)</code></span>
+          <p class="cmd-desc">
+            يفتح نافذة مملوءة مسبقاً ببيانات حساب المسؤول المحلي (<code>admin-eplus</code>) لإنشاء الحساب تلقائياً وإضافته إلى مجموعة
+            المسؤولين (<code>Administrators</code>) لتسهيل أعمال الصيانة والدعم الفني.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">4. إنشاء مجلدات النسخ الاحتياطي تلقائياً — <code>[3] Create 'backup' Folders on Drives (D: - H:)</code></span>
+          <p class="cmd-desc">
+            يفحص جميع الأقراص المتاحة من <code>D:</code> حتى <code>H:</code> وينشئ مجلداً باسم <code>backup</code> على جذر كل قرص
+            (مثل <code>D:\backup\</code> و <code>E:\backup\</code>) في حال عدم وجوده لحفظ النسخ الاحتياطية لقاعدة البيانات.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">5. تفعيل جدار الحماية وفتح منافذ SQL — <code>[4] Enable Firewall + Open Ports 1433-1434 (TCP/UDP)</code></span>
+          <p class="cmd-desc">
+            يفعّل جدار حماية ويندوز على جميع ملفات تعريف الشبكة ويضيف قواعد سماح للاتصالات الواردة عبر المنافذ <code>1433</code>
+            و <code>1434</code> لبروتوكولي <code>TCP</code> و <code>UDP</code> لضمان اتصال الأجهزة الفرعية بخادم SQL Server دون حظر.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">6. إيقاف جدار حماية ويندوز — <code>[5] Disable Windows Firewall</code></span>
+          <p class="cmd-desc">
+            يعطّل جدار حماية ويندوز بالكامل عبر جميع ملفات تعريف الشبكة (Domain و Private و Public) بشكل سريع لاختبار الاتصال أو حل مشاكل الحظر الداخلي.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">7. التحكم في خدمة تحديثات ويندوز — <code>[6] Enable / Disable Windows Update Service</code></span>
+          <p class="cmd-desc">
+            يتيح إدارة خدمة تحديثات ويندوز (<code>wuauserv</code>) إما بإيقافها وتغيير نوع بدء التشغيل إلى معطّل (Disabled) لمنع إعادة التشغيل المفاجئ،
+            أو إعادة تفعيلها وتشغيلها تلقائياً عند الرغبة.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">8. ضبط مؤقت وضع السكون — <code>[7] Configure Sleep Timer (Never / 10m / 1h / 3h)</code></span>
+          <p class="cmd-desc">
+            يضبط مهلة دخول الجهاز في وضع السكون (Standby) أثناء التوصيل بالكهرباء أو على البطارية عبر أداة <code>powercfg</code>
+            على أحد الخيارات: أبداً (Never)، 10 دقائق، ساعة واحدة، أو 3 ساعات.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">9. إنشاء نقطة استعادة نظام فورية — <code>[8] Make System Restore Point Now</code></span>
+          <p class="cmd-desc">
+            يفعّل ميزة استعادة النظام (System Restore) على قرص النظام <code>C:</code> وينشئ نقطة استعادة فورية مؤرخة بالتاريخ والوقت للرجوع إليها قبل إجراء أي تعديلات حساسة.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">10. فحص وإصلاح ملفات النظام — <code>[9] System Maintenance: SFC Scan (sfc /scannow)</code></span>
+          <p class="cmd-desc">
+            يشغّل أداة مدقق ملفات النظام (<code>sfc /scannow</code>) لفحص ملفات ويندوز الأساسية واكتشاف الملفات التالفة أو المفقودة واستبدالها تلقائياً بنسخ سليمة.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">11. ضبط الإعدادات الإقليمية لبرنامج ePlus — <code>[10] Set Regional Settings to ePlus</code></span>
+          <p class="cmd-desc">
+            يهيئ إعدادات السجل الإقليمية للمستخدم الحالي (<code>HKCU\Control Panel\International</code>) لضبط تنسيق التاريخ إلى <code>dd/MM/yyyy</code>
+            وتنسيق الوقت إلى <code>hh:mm:ss tt</code> مع صيغة صباحاً/مساءً وإعدادات <code>en-US</code> والأرقام بما يتوافق تماماً مع برنامج ePlus.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">12. تنظيف الملفات المؤقتة والكاش — <code>[11] Clear Temp, Recent &amp; Prefetch Folders</code></span>
+          <p class="cmd-desc">
+            ينظف مجلدات الملفات المؤقتة بأمان بما في ذلك <code>C:\Windows\Temp</code> ومجلد <code>%TEMP%</code> وعناصر <code>Recent</code>
+            ومجلد <code>C:\Windows\Prefetch</code> لتحرير المساحة وتحسين استجابة الجهاز.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">13. فحص وإصلاح صورة النظام — <code>[12] System Maintenance: DISM Scan (/RestoreHealth)</code></span>
+          <p class="cmd-desc">
+            ينفذ أمر الصيانة المتقدم <code>DISM /Online /Cleanup-Image /RestoreHealth</code> لإصلاح تلف صورة نظام ويندوز الأساسية ومخزن المكونات (Component Store).
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">14. فحص وإصلاح أخطاء الأقراص الصلبة — <code>[13] System Maintenance: CHKDSK</code></span>
+          <p class="cmd-desc">
+            يعرض الأقراص المكتشفة في الجهاز لاختيار أي قرص (<code>C:</code> أو <code>D:</code> وغيرها) وتنفيذ الفحص إما بالوضع السريع لإصلاح أخطاء نظام الملفات (<code>/f</code>)
+            أو الفحص الشامل للقطاعات التالفة واستعادة البيانات القابلة للقراءة (<code>/f /r</code>).
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">15. تعطيل التحكم في حساب المستخدم — <code>[14] Disable UAC (User Account Control) Completely</code></span>
+          <p class="cmd-desc">
+            يعطّل تنبيهات التحكم في حساب المستخدم (UAC) بالكامل عبر ضبط القيمة <code>EnableLUA = 0</code> في مسار <code>HKLM\...\Policies\System</code>
+            (يتطلب إعادة تشغيل الجهاز لتفعيل التغيير).
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">16. تفعيل المشاركة الشبكية بكلمة مرور — <code>[15] Enable Printer &amp; Network Sharing (Password ON)</code></span>
+          <p class="cmd-desc">
+            يفعّل قواعد مشاركة الملفات والطابعات واكتشاف الشبكة في جدار الحماية، ويفرض حماية المشاركة بكلمة مرور مع تعطيل حساب الضيف (Guest) لرفع مستوى الأمان.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">17. تفعيل المشاركة الشبكية بدون كلمة مرور — <code>[16] Enable Printer &amp; Network Sharing (Password OFF)</code></span>
+          <p class="cmd-desc">
+            يفعّل قواعد مشاركة الملفات والطابعات واكتشاف الشبكة مع السماح بالمشاركة المجهولة دون مطالبة بكلمة مرور وتفعيل حساب الضيف (Guest) لسهولة الربط في الشبكات الداخلية.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">18. إصلاح مشاركة الطابعات على السيرفر — <code>[17] Fix Printer Sharing (Host / Server PC)</code></span>
+          <p class="cmd-desc">
+            يعالج أخطاء الاتصال بالطابعات المشتركة على الجهاز الرئيسي (Host/Server) عبر ضبط القيمة <code>RpcAuthnLevelPrivacyEnabled = 0</code>
+            في مسار <code>Control\Print</code> ثم إعادة تشغيل خدمة الطباعة (Print Spooler) تلقائياً.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">19. إصلاح مشاركة الطابعات على الأجهزة الفرعية — <code>[18] Fix Printer Sharing (Client PC)</code></span>
+          <p class="cmd-desc">
+            يحُل مشاكل تثبيت تعريفات الطابعات المشتركة على الأجهزة الفرعية (Client PC) عبر ضبط القيمة <code>RestrictDriverInstallationToAdministrators = 0</code>
+            في سياسة <code>PointAndPrint</code> مع إعادة تشغيل خدمة Print Spooler تلقائياً.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">20. ضبط لغات النظام الإنجليزية والعربية — <code>[19] Set System Language to EN (US) &amp; AR (Egypt)</code></span>
+          <p class="cmd-desc">
+            يحدّث قائمة لغات المستخدم في ويندوز عبر PowerShell لتشمل اللغة الإنجليزية (الولايات المتحدة <code>en-US</code>) واللغة العربية (مصر <code>ar-EG</code>) بشكل قياسي.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">21. ضبط تخطيط لوحة المفاتيح — <code>[20] Set Keyboard Layout to EN (US) &amp; AR (Egypt)</code></span>
+          <p class="cmd-desc">
+            يعيد ضبط تخطيطات لوحة المفاتيح في السجل (<code>HKCU\Keyboard Layout\Preload</code>) لتثبيت الإنجليزية (<code>00000409</code>)
+            والعربية المصرية (<code>00000c01</code>) وإزالة التخطيطات غير المرغوبة.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">22. إعادة تعيين إعدادات الشبكة بالكامل — <code>[21] Reset Network Configuration (Winsock, TCP/IP, DNS)</code></span>
+          <p class="cmd-desc">
+            يعيد تهيئة مكدس الشبكة Winsock وبروتوكول TCP/IP ويفرّغ ذاكرة التخزين المؤقت لأسماء النطاقات (DNS Cache) لإصلاح أعطال الإنترنت والشبكة المحلية،
+            مع عرض خيار إعادة تشغيل الجهاز خلال 15 ثانية.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">23. استثناء مجلدات النظام والتحميلات من الحماية — <code>[22] Add Scan Exclusions (%USERPROFILE%\Downloads &amp; Bconnect)</code></span>
+          <p class="cmd-desc">
+            يضيف مجلد التنزيلات للمستخدم الحالي ومجلد <code>C:\Program Files (x86)\Bconnect</code> وأي مجلد باسم <code>Bconnect</code> على جذور الأقراص المتاحة
+            إلى قائمة استثناءات الفحص في Windows Security لمنع حذف أو تعطيل الملفات التشغيلية.
+          </p>
+        </li>
+        <li>
+          <span class="cmd-title">24. أدوات الطباعة والطاقة والدعم عن بُعد والسجلات — <code>[25–30] Spooler Reset, High Performance, Fast Startup &amp; Remote Support</code></span>
+          <p class="cmd-desc">
+            مجموعة الأدوات المساندة الأخيرة في القائمة وتشمل:
+            <strong>[25]</strong> إيقاف خدمة الطباعة ومسح مهام الطباعة العالقة في <code>spool\PRINTERS</code> ثم إعادة تشغيلها،
+            و <strong>[26]</strong> تفعيل خطة الطاقة للأداء الأقصى (High Performance) وتعطيل ميزة فصل USB التلقائي (USB Selective Suspend)،
+            و <strong>[27]</strong> تعطيل الإقلاع السريع (<code>HiberbootEnabled = 0</code>) لحل مشاكل المجلدات والطابعات المشتركة بعد التشغيل،
+            و <strong>[28]</strong> التثبيت الصامت لبرامج الدعم عن بُعد (AnyDesk و RustDesk و UltraViewer و TightVNC)،
+            و <strong>[29]</strong> إعادة تعيين معرّف AnyDesk لتوليد ID جديد،
+            و <strong>[30]</strong> تصدير سجل العمليات الفاشلة إلى ملف <code>.log</code> مؤرخ لتسهيل المراجعة والدعم الفني.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      ≡ EPLUS Software Center — دليل استخدام ePlus System Toolkit
+    </footer>
+  </main>
+</body>
+
+</html>

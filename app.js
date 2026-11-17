@@ -24,7 +24,235 @@
   let searchQuery = "";
   let currentView = localStorage.getItem("eplus_view") || config.site.defaultView || "grid";
   let currentTheme = localStorage.getItem("eplus_theme_v2") || config.site.defaultTheme || "light";
+  let currentLang = localStorage.getItem("eplus_lang_v1") || "en";
   let toastTimeout = null;
+
+  // Bilingual UI Dictionary (en / ar)
+  const I18N = {
+    en: {
+      siteTitle: "≡ EPLUS Software Center",
+      pageTitleSuffix: "Software & Essential Files",
+      siteBadge: "Directory",
+      siteSubtitle:
+        "Essential software packages, database upgrades, printer drivers, system utilities, and direct MediaFire archives.",
+      rootFolderLabel: "Open Main MediaFire Folder",
+      rootFolderTitle: "Open full #EPLUS MediaFire repository",
+      toolkitBtn: "System Toolkit",
+      toolkitTitle: "Download ePlus System Toolkit (Windows, run as Administrator)",
+      helpBtn: "Help?",
+      helpTitle: "Download Arabic guide for System Toolkit (24 commands)",
+      logIn: "Log In",
+      logInTitle: "Click to Log In and Unlock Catalog",
+      logOut: "Log Out",
+      logOutTitle: "Authenticated (Click to Log Out)",
+      permTitle: "Permanent Direct Downloads",
+      permBadge: "Hosted on Website",
+      permDesc: "Instant high-speed local downloads · No waiting",
+      cardHanyTitle: "HANY 2000 to 2008 Tool",
+      cardSqlTitle: "SQL Server 2008 R2",
+      cardVideoTitle: "SQL 2008 Training",
+      pillVideoMp4: "Video MP4",
+      pillWinTheme: "Win Theme",
+      searchLocked: "Click or press / to log in and unlock directory...",
+      searchUnlocked: (count) =>
+        `Search ${count} files, drivers, SQL, Eplus versions, or passwords...`,
+      tabAll: "All",
+      viewGrid: "Grid",
+      viewGridTitle: "Grid View",
+      viewList: "List",
+      viewListTitle: "Compact List View",
+      actionDownload: "Download",
+      actionDirectDownload: "Direct Download",
+      actionOpenFolder: "Open Folder",
+      actionMediafireMirror: "MediaFire Mirror",
+      actionMediafireCloud: "MediaFire Cloud",
+      actionDirectMediafire: "Direct MediaFire",
+      actionChangelog: "Changelog",
+      mediafireFolder: "MediaFire Folder",
+      openFolderTooltip: (name) => `Open ${name} folder on MediaFire`,
+      itemSingular: "item",
+      itemPlural: "items",
+      noteLabel: "Description / Note",
+      fileSizeTitle: "File Size",
+      pwCopyTitle: "Click to copy archive password",
+      pwCopyLabel: (pw) => `password (${pw})`,
+      shaCopyTitle: (hash) => `Click to copy full SHA-256: ${hash}`,
+      shaCopyLabel: "SHA-256 checksum",
+      copyLinkTitle: "Copy direct link",
+      copyLinkLabel: (name) => `link for ${name}`,
+      copiedToast: (label) => `Copied ${label} to clipboard`,
+      emptyTitle: (q) => `No files found matching "${q}"`,
+      emptySub: 'Try searching a different keyword or switching the category tab to "All".',
+      footerTitle: "≡ EPLUS Software & Essential Files Directory",
+      footerHint: "To add or update files, edit data.js",
+      authTitle: "Restricted Catalog Access",
+      authSubtitle: "Enter the master passcode to unlock search and view the full file catalog.",
+      authPlaceholder: "Enter passcode",
+      authSubmit: "Unlock Catalog",
+      authErrEmpty: "Please enter the passcode.",
+      authErrInvalid: "Incorrect passcode. Please try again.",
+      toastUnlocked: "Access granted — Catalog unlocked!",
+      toastLocked: "Logged out — Catalog locked.",
+      confirmLogout: "Are you sure you want to log out and lock the catalog?",
+      themeToLight: "Switch to light mode",
+      themeToDark: "Switch to dark mode",
+      catScrollLeft: "Scroll left",
+      catScrollRight: "Scroll right",
+      categories: {}
+    },
+    ar: {
+      siteTitle: "≡ مركز برامج EPLUS",
+      pageTitleSuffix: "البرامج والملفات الأساسية",
+      siteBadge: "الدليل",
+      siteSubtitle:
+        "الحزم البرمجية الأساسية، وتحديثات قواعد البيانات، وتعريفات الطابعات، وأدوات صيانة النظام، وروابط التحميل المباشرة.",
+      rootFolderLabel: "فتح مجلد MediaFire الرئيسي",
+      rootFolderTitle: "فتح مستودع #EPLUS الكامل على MediaFire",
+      toolkitBtn: "أداة النظام",
+      toolkitTitle: "تحميل أداة ePlus System Toolkit (لويندوز — تشغيل كمسؤول)",
+      helpBtn: "مساعدة؟",
+      helpTitle: "تحميل دليل شرح أداة System Toolkit بالعربية (24 أمر)",
+      logIn: "تسجيل الدخول",
+      logInTitle: "اضغط لتسجيل الدخول وفتح دليل الملفات",
+      logOut: "تسجيل الخروج",
+      logOutTitle: "تم التحقق (اضغط لتسجيل الخروج)",
+      permTitle: "التحميلات المباشرة السريعة",
+      permBadge: "مُستضاف على الموقع",
+      permDesc: "تحميل مباشر فائق السرعة · بدون انتظار",
+      cardHanyTitle: "أداة الترقية HANY 2000 إلى 2008",
+      cardSqlTitle: "خادم SQL Server 2008 R2",
+      cardVideoTitle: "فيديو تدريب SQL 2008",
+      pillVideoMp4: "فيديو MP4",
+      pillWinTheme: "ثيم ويندوز",
+      searchLocked: "اضغط هنا أو اضغط / لتسجيل الدخول وفتح دليل الملفات...",
+      searchUnlocked: (count) =>
+        `ابحث في ${count} ملف، أو تعريفات الطابعات، أو SQL، أو إصدارات Eplus، أو كلمات المرور...`,
+      tabAll: "الكل",
+      viewGrid: "شبكة",
+      viewGridTitle: "عرض الشبكة",
+      viewList: "قائمة",
+      viewListTitle: "عرض القائمة المضغوط",
+      actionDownload: "تحميل",
+      actionDirectDownload: "تحميل مباشر",
+      actionOpenFolder: "فتح المجلد",
+      actionMediafireMirror: "رابط MediaFire بديل",
+      actionMediafireCloud: "سحابة MediaFire",
+      actionDirectMediafire: "رابط MediaFire مباشر",
+      actionChangelog: "سجل التحديث",
+      mediafireFolder: "مجلد MediaFire",
+      openFolderTooltip: (name) => `فتح مجلد ${name} على MediaFire`,
+      itemSingular: "ملف",
+      itemPlural: "ملفات",
+      noteLabel: "الوصف / ملاحظة",
+      fileSizeTitle: "حجم الملف",
+      pwCopyTitle: "اضغط لنسخ كلمة مرور الأرشيف",
+      pwCopyLabel: (pw) => `كلمة المرور (${pw})`,
+      shaCopyTitle: (hash) => `اضغط لنسخ بصمة SHA-256 الكاملة: ${hash}`,
+      shaCopyLabel: "بصمة التحقق SHA-256",
+      copyLinkTitle: "نسخ الرابط المباشر",
+      copyLinkLabel: (name) => `رابط ${name}`,
+      copiedToast: (label) => `تم نسخ ${label} إلى الحافظة`,
+      emptyTitle: (q) => `لا توجد ملفات مطابقة للبحث "${q}"`,
+      emptySub: 'جرّب البحث بكلمة أخرى أو التبديل إلى تبويب "الكل".',
+      footerTitle: "≡ دليل برامج وملفات EPLUS الأساسية",
+      footerHint: "لإضافة أو تحديث الملفات، قم بتعديل data.js",
+      authTitle: "الدخول إلى دليل الملفات المحمي",
+      authSubtitle: "أدخل رمز المرور الرئيسي لفتح البحث وعرض فهرس الملفات بالكامل.",
+      authPlaceholder: "أدخل رمز المرور",
+      authSubmit: "فتح الدليل",
+      authErrEmpty: "يرجى إدخال رمز المرور.",
+      authErrInvalid: "رمز المرور غير صحيح، يرجى المحاولة مرة أخرى.",
+      toastUnlocked: "تم السماح بالدخول — تم فتح دليل الملفات!",
+      toastLocked: "تم تسجيل الخروج — تم قفل دليل الملفات.",
+      confirmLogout: "هل أنت متأكد من تسجيل الخروج وقفل دليل الملفات؟",
+      themeToLight: "التبديل إلى الوضع الفاتح",
+      themeToDark: "التبديل إلى الوضع الداكن",
+      catScrollLeft: "تمرير لليسار",
+      catScrollRight: "تمرير لليمين",
+      categories: {
+        "whats-new": {
+          name: "ما الجديد (سجل التحديثات والإصدارات)",
+          description: "سجل التغييرات وملاحظات الإصدارات التفصيلية لكل تحديث من تحديثات برنامج e-Plus الصيدلي."
+        },
+        "eplus-db": {
+          name: "EPLUS وقواعد البيانات",
+          description: "تحديثات برنامج EPLUS الأساسية، وأدوات الإدارة، وحزم الترقية إلى SQL Server 2008 R2، وقوالب قواعد البيانات النظيفة."
+        },
+        "eplus-core": {
+          name: "مجلد Eplus الأساسي",
+          description: "جميع الملفات داخل مجلد Eplus الرئيسي (SQL 2000 و SP4، وإصدارات E-plus، و VNC، و Radmin VPN، وسكربتات الإعدادات الإقليمية)."
+        },
+        "eplus-116": {
+          name: "إصدار E-plus 13.0.116",
+          description: "ملفات حزمة E-plus+13.0.116 ومجلداتها الفرعية (Admin Support و DBCheckerService و Replication والفاتورة الإلكترونية)."
+        },
+        utilities: {
+          name: "الأدوات الأساسية والشبكة",
+          description: "إصلاحات مشاركة الطابعات، وأدوات الشبكة و SMB، وفحص المنافذ، وأدوات الصيانة السريعة."
+        },
+        "software-os": {
+          name: "البرامج وأنظمة التشغيل (ISO)",
+          description: "حزم التثبيت، وأدوات استعادة النظام، وبرامج حرق الفلاشات، وصور أنظمة ويندوز ISO."
+        },
+        "printer-drivers": {
+          name: "تعريفات وأدوات الطابعات",
+          description: "تعريفات طابعات الفواتير والباركود (Xprinter و Zebra و Bixolon و Epson و Star و Honeywell و GoDEX)."
+        },
+        "other-tools": {
+          name: "أدوات وموارد إضافية",
+          description: "مجلدات SQL الكاملة، والأدوات المساعدة المباشرة، وملفات الماسحات الضوئية والباركود من مجلد OTHER."
+        },
+        future2010: {
+          name: "برنامج FUTURE2010",
+          description: "جميع ملفات وحزم وإصدارات FUTURE2010 وملفات الإعداد والتشغيل."
+        },
+        folders: {
+          name: "مجلدات MediaFire الفرعية الأخرى",
+          description: "روابط مباشرة لبقية المجلدات الفرعية داخل مستودع #EPLUS على MediaFire."
+        },
+        media: {
+          name: "أرشيف الصوتيات والوسائط",
+          description: "التلاوات الصوتية وحزم الوسائط المضغوطة."
+        }
+      }
+    }
+  };
+
+  function t(key) {
+    const dict = I18N[currentLang] || I18N.en;
+    return dict[key] !== undefined ? dict[key] : I18N.en[key];
+  }
+
+  function getCategoryText(cat) {
+    if (currentLang === "ar" && I18N.ar.categories[cat.id]) {
+      return I18N.ar.categories[cat.id];
+    }
+    return { name: cat.name, description: cat.description || "" };
+  }
+
+  function translateActionLabel(rawLabel, isFolder) {
+    if (currentLang !== "ar") {
+      return rawLabel || (isFolder ? t("actionOpenFolder") : t("actionDownload"));
+    }
+    switch (rawLabel) {
+      case "Download":
+        return t("actionDownload");
+      case "Direct Download":
+        return t("actionDirectDownload");
+      case "Open Folder":
+        return t("actionOpenFolder");
+      case "MediaFire Mirror":
+        return t("actionMediafireMirror");
+      case "MediaFire Cloud":
+        return t("actionMediafireCloud");
+      case "Direct MediaFire":
+        return t("actionDirectMediafire");
+      case "Changelog":
+        return t("actionChangelog");
+      default:
+        return isFolder ? t("actionOpenFolder") : t("actionDownload");
+    }
+  }
 
   // Master Passcode Auth Gate (SHA-256 hash of 'eplus2026')
   const MASTER_HASH = "abb48cfb7c3ef837d77c518a26ef8bcf949b82d74ca1b8c5db3623c8fbfe205e";
@@ -38,6 +266,9 @@
   const heroSubtitleEl = document.getElementById("hero-subtitle");
   const rootFolderLinkEl = document.getElementById("root-folder-link");
   const rootFolderLabelEl = document.getElementById("root-folder-label");
+  const toolkitDownloadBtn = document.getElementById("toolkit-download-btn");
+  const toolkitHelpBtn = document.getElementById("toolkit-help-btn");
+  const langToggleBtn = document.getElementById("lang-toggle-btn");
   const searchInputEl = document.getElementById("search-input");
   const searchClearBtn = document.getElementById("search-clear-btn");
   const categoryTabsEl = document.getElementById("category-tabs");
@@ -153,9 +384,10 @@
 
   function copyToClipboard(text, label) {
     if (!text) return;
+    const msg = t("copiedToast")(label);
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(() => {
-        showToast(`Copied ${label} to clipboard`);
+        showToast(msg);
       });
     } else {
       const textarea = document.createElement("textarea");
@@ -166,7 +398,7 @@
       textarea.select();
       try {
         document.execCommand("copy");
-        showToast(`Copied ${label} to clipboard`);
+        showToast(msg);
       } catch (err) {
         console.error("Copy failed", err);
       }
@@ -181,14 +413,60 @@
     localStorage.setItem("eplus_theme_v2", currentTheme);
     if (themeToggleBtn) {
       themeToggleBtn.innerHTML = currentTheme === "dark" ? ICONS.sun : ICONS.moon;
-      themeToggleBtn.setAttribute(
-        "aria-label",
-        currentTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-      );
-      themeToggleBtn.setAttribute(
-        "title",
-        currentTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-      );
+      const themeLabel = currentTheme === "dark" ? t("themeToLight") : t("themeToDark");
+      themeToggleBtn.setAttribute("aria-label", themeLabel);
+      themeToggleBtn.setAttribute("title", themeLabel);
+    }
+  }
+
+  // Apply Language (en / ar)
+  function applyLanguage(lang) {
+    currentLang = lang === "ar" ? "ar" : "en";
+    localStorage.setItem("eplus_lang_v1", currentLang);
+    document.documentElement.setAttribute("lang", currentLang);
+    document.documentElement.setAttribute("dir", currentLang === "ar" ? "rtl" : "ltr");
+
+    if (langToggleBtn) {
+      const enSign = langToggleBtn.querySelector('[data-lang-sign="en"]');
+      const arSign = langToggleBtn.querySelector('[data-lang-sign="ar"]');
+      if (enSign) enSign.classList.toggle("active", currentLang === "en");
+      if (arSign) arSign.classList.toggle("active", currentLang === "ar");
+    }
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      const val = t(key);
+      if (typeof val === "string") {
+        el.textContent = val;
+      }
+    });
+
+    const titleText = t("siteTitle");
+    if (brandTitleEl) brandTitleEl.textContent = titleText;
+    if (heroTitleEl) heroTitleEl.textContent = titleText;
+    document.title = `${titleText} — ${t("pageTitleSuffix")}`;
+    if (brandBadgeEl) brandBadgeEl.textContent = t("siteBadge");
+    if (heroSubtitleEl) heroSubtitleEl.textContent = t("siteSubtitle");
+    if (rootFolderLabelEl) rootFolderLabelEl.textContent = t("rootFolderLabel");
+    if (rootFolderLinkEl) rootFolderLinkEl.title = t("rootFolderTitle");
+    if (toolkitDownloadBtn) toolkitDownloadBtn.title = t("toolkitTitle");
+    if (toolkitHelpBtn) toolkitHelpBtn.title = t("helpTitle");
+    document.querySelectorAll(".perm-card-help-btn").forEach((btn) => {
+      btn.title = t("helpTitle");
+    });
+    if (viewGridBtn) viewGridBtn.title = t("viewGridTitle");
+    if (viewListBtn) viewListBtn.title = t("viewListTitle");
+    if (catScrollLeftBtn) catScrollLeftBtn.title = t("catScrollLeft");
+    if (catScrollRightBtn) catScrollRightBtn.title = t("catScrollRight");
+    if (authPasscodeInput) authPasscodeInput.placeholder = t("authPlaceholder");
+
+    applyTheme(currentTheme);
+    updateAuthUI();
+
+    if (isAuthenticated) {
+      renderTabs();
+      renderDirectory();
+      applyView(currentView);
     }
   }
 
@@ -211,12 +489,14 @@
 
   function updateCategoryScrollButtons() {
     if (!categoryTabsEl) return;
-    const maxScrollLeft = categoryTabsEl.scrollWidth - categoryTabsEl.clientWidth;
-    if (catScrollLeftBtn) {
-      catScrollLeftBtn.disabled = categoryTabsEl.scrollLeft <= 2;
-    }
-    if (catScrollRightBtn) {
-      catScrollRightBtn.disabled = categoryTabsEl.scrollLeft >= maxScrollLeft - 2;
+    const maxScroll = Math.max(0, categoryTabsEl.scrollWidth - categoryTabsEl.clientWidth);
+    const pos = Math.abs(categoryTabsEl.scrollLeft);
+    if (document.documentElement.dir === "rtl") {
+      if (catScrollRightBtn) catScrollRightBtn.disabled = pos <= 2;
+      if (catScrollLeftBtn) catScrollLeftBtn.disabled = pos >= maxScroll - 2;
+    } else {
+      if (catScrollLeftBtn) catScrollLeftBtn.disabled = pos <= 2;
+      if (catScrollRightBtn) catScrollRightBtn.disabled = pos >= maxScroll - 2;
     }
   }
 
@@ -228,7 +508,7 @@
 
     let html = `
       <button type="button" class="tab-btn ${activeCategory === "all" ? "active" : ""}" data-cat="all">
-        <span>All</span>
+        <span>${escapeHtml(t("tabAll"))}</span>
         <span class="tab-count mono">${totalCount}</span>
       </button>
     `;
@@ -237,9 +517,10 @@
       const count = matchingFiles.filter((f) => f.category === cat.id).length;
       if (count === 0 && !searchQuery) return;
       const isActive = activeCategory === cat.id ? "active" : "";
+      const catText = getCategoryText(cat);
       html += `
         <button type="button" class="tab-btn ${isActive}" data-cat="${escapeHtml(cat.id)}">
-          <span>${escapeHtml(cat.name)}</span>
+          <span>${escapeHtml(catText.name)}</span>
           <span class="tab-count mono">${count}</span>
         </button>
       `;
@@ -267,18 +548,18 @@
   function renderFileItem(item) {
     const isFolder = item.category === "folders" || item.size === "Subfolder";
     const actionIcon = isFolder ? ICONS.external : ICONS.download;
-    const actionLabel = item.urlLabel || (isFolder ? "Open Folder" : "Download");
+    const actionLabel = translateActionLabel(item.urlLabel, isFolder);
 
     // Metadata Pills (Size, Password, Checksum)
     let metaPillsHtml = "";
 
     if (item.size && item.size !== "Subfolder") {
-      metaPillsHtml += `<span class="meta-pill mono" title="File Size">${escapeHtml(item.size)}</span>`;
+      metaPillsHtml += `<span class="meta-pill mono" title="${escapeHtml(t("fileSizeTitle"))}">${escapeHtml(item.size)}</span>`;
     }
 
     if (item.password) {
       metaPillsHtml += `
-        <button type="button" class="meta-pill pw-pill mono" data-copy="${escapeHtml(item.password)}" data-copy-label="password (${escapeHtml(item.password)})" title="Click to copy archive password">
+        <button type="button" class="meta-pill pw-pill mono" data-copy="${escapeHtml(item.password)}" data-copy-label="${escapeHtml(t("pwCopyLabel")(item.password))}" title="${escapeHtml(t("pwCopyTitle"))}">
           ${ICONS.key}
           <span>PW: ${escapeHtml(item.password)}</span>
         </button>
@@ -288,7 +569,7 @@
     if (item.checksum) {
       const shortHash = item.checksum.slice(0, 8) + "…";
       metaPillsHtml += `
-        <button type="button" class="meta-pill mono" data-copy="${escapeHtml(item.checksum)}" data-copy-label="SHA-256 checksum" title="Click to copy full SHA-256: ${escapeHtml(item.checksum)}">
+        <button type="button" class="meta-pill mono" data-copy="${escapeHtml(item.checksum)}" data-copy-label="${escapeHtml(t("shaCopyLabel"))}" title="${escapeHtml(t("shaCopyTitle")(item.checksum))}">
           ${ICONS.hash}
           <span>SHA256: ${escapeHtml(shortHash)}</span>
         </button>
@@ -299,21 +580,24 @@
     let mirrorsHtml = "";
     if (Array.isArray(item.mirrors) && item.mirrors.length > 0) {
       mirrorsHtml = item.mirrors
-        .map(
-          (m) => `
-          <a href="${escapeHtml(m.url)}" target="_blank" rel="noopener noreferrer" class="btn-mirror" title="${escapeHtml(m.label)}">
+        .map((m) => {
+          const mirrorUrl = typeof m === "string" ? m : m.url;
+          const mirrorRawLabel = typeof m === "string" ? "MediaFire Mirror" : m.label;
+          const mirrorLabel = translateActionLabel(mirrorRawLabel, false);
+          return `
+          <a href="${escapeHtml(mirrorUrl)}" target="_blank" rel="noopener noreferrer" class="btn-mirror" title="${escapeHtml(mirrorLabel)}">
             ${ICONS.download}
-            <span>${escapeHtml(m.label)}</span>
+            <span>${escapeHtml(mirrorLabel)}</span>
           </a>
-        `
-        )
+        `;
+        })
         .join("");
     }
 
     const floatingNoteHtml = item.description
       ? `
         <div class="floating-note" role="tooltip">
-          <span class="floating-note-label mono">Description / Note</span>
+          <span class="floating-note-label mono">${escapeHtml(t("noteLabel"))}</span>
           ${escapeHtml(item.description)}
         </div>
       `
@@ -354,7 +638,7 @@
               <span>${escapeHtml(actionLabel)}</span>
             </a>
             ${mirrorsHtml}
-            <button type="button" class="btn-copy-link" data-copy="${escapeHtml(item.url.startsWith("http") ? item.url : window.location.origin + window.location.pathname.replace(/[^/]*$/, '') + item.url)}" data-copy-label="link for ${escapeHtml(item.name)}" title="Copy direct link">
+            <button type="button" class="btn-copy-link" data-copy="${escapeHtml(item.url.startsWith("http") ? item.url : window.location.origin + window.location.pathname.replace(/[^/]*$/, '') + item.url)}" data-copy-label="${escapeHtml(t("copyLinkLabel")(item.name))}" title="${escapeHtml(t("copyLinkTitle"))}">
               ${ICONS.copy}
             </button>
           </div>
@@ -379,21 +663,24 @@
       );
       if (items.length === 0) return;
 
+      const catText = getCategoryText(cat);
       const itemsHtml = items.map(renderFileItem).join("");
       const folderLinkHtml = cat.folderUrl
-        ? `<a href="${escapeHtml(cat.folderUrl)}" target="_blank" rel="noopener noreferrer" class="section-folder-link mono" title="Open ${escapeHtml(cat.name)} folder on MediaFire">${ICONS.external} <span>MediaFire Folder</span></a>`
+        ? `<a href="${escapeHtml(cat.folderUrl)}" target="_blank" rel="noopener noreferrer" class="section-folder-link mono" title="${escapeHtml(t("openFolderTooltip")(catText.name))}">${ICONS.external} <span>${escapeHtml(t("mediafireFolder"))}</span></a>`
         : "";
+
+      const countWord = items.length === 1 ? t("itemSingular") : t("itemPlural");
 
       sectionsHtml += `
         <section class="category-section" id="section-${escapeHtml(cat.id)}">
           <div class="section-header">
             <div class="section-title-wrap">
-              <h2 class="section-title">${escapeHtml(cat.name)}</h2>
-              ${cat.description ? `<span class="section-desc">${escapeHtml(cat.description)}</span>` : ""}
+              <h2 class="section-title">${escapeHtml(catText.name)}</h2>
+              ${catText.description ? `<span class="section-desc">${escapeHtml(catText.description)}</span>` : ""}
             </div>
             <div class="section-meta-right">
               ${folderLinkHtml}
-              <span class="section-count mono">${items.length} ${items.length === 1 ? "item" : "items"}</span>
+              <span class="section-count mono">${items.length} ${escapeHtml(countWord)}</span>
             </div>
           </div>
           <div class="items-container ${viewClass}">
@@ -406,8 +693,8 @@
     if (!sectionsHtml) {
       sectionsHtml = `
         <div class="empty-search-state">
-          <div class="empty-search-title">No files found matching "${escapeHtml(searchQuery)}"</div>
-          <div class="empty-search-sub">Try searching a different keyword or switching the category tab to "All".</div>
+          <div class="empty-search-title">${escapeHtml(t("emptyTitle")(escapeHtml(searchQuery)))}</div>
+          <div class="empty-search-sub">${escapeHtml(t("emptySub"))}</div>
         </div>
       `;
     }
@@ -447,30 +734,30 @@
       document.body.classList.remove("unauthenticated");
       if (authToggleBtn) {
         authToggleBtn.classList.add("authenticated");
-        authToggleBtn.title = "Authenticated (Click to Log Out)";
+        authToggleBtn.title = t("logOutTitle");
         const lockIcon = authToggleBtn.querySelector(".auth-lock-icon");
         const unlockIcon = authToggleBtn.querySelector(".auth-unlock-icon");
         if (lockIcon) lockIcon.style.display = "none";
         if (unlockIcon) unlockIcon.style.display = "inline-block";
       }
-      if (authBtnLabel) authBtnLabel.textContent = "Log Out";
+      if (authBtnLabel) authBtnLabel.textContent = t("logOut");
       if (searchInputEl) {
-        searchInputEl.placeholder = `Search ${config.files.length} files, drivers, SQL, Eplus versions, or passwords...`;
+        searchInputEl.placeholder = t("searchUnlocked")(config.files.length);
         searchInputEl.readOnly = false;
       }
     } else {
       document.body.classList.add("unauthenticated");
       if (authToggleBtn) {
         authToggleBtn.classList.remove("authenticated");
-        authToggleBtn.title = "Click to Log In and Unlock Catalog";
+        authToggleBtn.title = t("logInTitle");
         const lockIcon = authToggleBtn.querySelector(".auth-lock-icon");
         const unlockIcon = authToggleBtn.querySelector(".auth-unlock-icon");
         if (lockIcon) lockIcon.style.display = "inline-block";
         if (unlockIcon) unlockIcon.style.display = "none";
       }
-      if (authBtnLabel) authBtnLabel.textContent = "Log In";
+      if (authBtnLabel) authBtnLabel.textContent = t("logIn");
       if (searchInputEl) {
-        searchInputEl.placeholder = "Click or press / to log in and unlock directory...";
+        searchInputEl.placeholder = t("searchLocked");
         searchInputEl.readOnly = true;
       }
     }
@@ -501,7 +788,7 @@
     if (!authPasscodeInput) return;
     const passcode = authPasscodeInput.value.trim();
     if (!passcode) {
-      showAuthError("Please enter the passcode.");
+      showAuthError(t("authErrEmpty"));
       return;
     }
 
@@ -511,7 +798,7 @@
       localStorage.setItem(AUTH_STORAGE_KEY, "true");
       updateAuthUI();
       closeAuthModal();
-      showToast("Access granted — Catalog unlocked!");
+      showToast(t("toastUnlocked"));
       renderTabs();
       renderDirectory();
       applyView(currentView);
@@ -519,7 +806,7 @@
         searchInputEl.focus();
       }
     } else {
-      showAuthError("Incorrect passcode. Please try again.");
+      showAuthError(t("authErrInvalid"));
     }
   }
 
@@ -542,7 +829,7 @@
     isAuthenticated = false;
     localStorage.removeItem(AUTH_STORAGE_KEY);
     updateAuthUI();
-    showToast("Logged out — Catalog locked.");
+    showToast(t("toastLocked"));
   }
 
   function init() {
@@ -551,19 +838,23 @@
       config.files = config.files.filter((f) => !isSkippedFile(f));
     }
 
-    // 1. Apply Initial Auth State immediately
-    updateAuthUI();
-
-    // 2. Auth Toggle Button in Topbar
+    // 1. Auth Toggle Button in Topbar
     if (authToggleBtn) {
       authToggleBtn.addEventListener("click", () => {
         if (isAuthenticated) {
-          if (confirm("Are you sure you want to log out and lock the catalog?")) {
+          if (confirm(t("confirmLogout"))) {
             handleLogout();
           }
         } else {
           openAuthModal();
         }
+      });
+    }
+
+    // 2. Language Switcher Button in Topbar (℮ / ؏)
+    if (langToggleBtn) {
+      langToggleBtn.addEventListener("click", () => {
+        applyLanguage(currentLang === "ar" ? "en" : "ar");
       });
     }
 
@@ -595,34 +886,11 @@
       });
     }
 
-    if (brandTitleEl && config.site.title) {
-      brandTitleEl.textContent = config.site.title;
-      document.title = `${config.site.title} — Software & Essential Files`;
-    }
-    if (brandBadgeEl && config.site.badge) {
-      brandBadgeEl.textContent = config.site.badge;
-    }
-    if (heroTitleEl && config.site.title) {
-      heroTitleEl.textContent = config.site.title;
-    }
-    if (heroSubtitleEl && config.site.subtitle) {
-      heroSubtitleEl.textContent = config.site.subtitle;
-    }
     if (rootFolderLinkEl && config.site.rootFolderUrl) {
       rootFolderLinkEl.href = config.site.rootFolderUrl;
     }
-    if (rootFolderLabelEl && config.site.rootFolderLabel) {
-      rootFolderLabelEl.textContent = config.site.rootFolderLabel;
-    }
 
-    applyTheme(currentTheme);
-
-    // Only render tabs & catalog directory if authenticated
-    if (isAuthenticated) {
-      renderTabs();
-      renderDirectory();
-      applyView(currentView);
-    }
+    applyLanguage(currentLang);
 
     // Search Bar Gate: intercept clicks and inputs when unauthenticated
     if (searchInputEl) {
@@ -793,13 +1061,16 @@
       .then((rows) => {
         if (Array.isArray(rows) && rows[0] && rows[0].payload && Array.isArray(rows[0].payload.files)) {
           const remoteConfig = rows[0].payload;
+          if (remoteConfig.site) {
+            remoteConfig.site.title = "≡ EPLUS Software Center";
+          }
           remoteConfig.files = remoteConfig.files.filter((f) => !isSkippedFile(f));
           if (remoteConfig.files.length >= config.files.length) {
             config = remoteConfig;
             window.SITE_CONFIG = remoteConfig;
             if (isAuthenticated) {
               if (searchInputEl) {
-                searchInputEl.placeholder = `Search ${config.files.length} files, drivers, SQL, Eplus versions, or passwords...`;
+                searchInputEl.placeholder = t("searchUnlocked")(config.files.length);
               }
               renderTabs();
               renderDirectory();
